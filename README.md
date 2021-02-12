@@ -1,4 +1,4 @@
-**Restaurant Booking Team 5**
+**TEAM 5 Restaurant Booking System**
 
-Team 5 Restaurant Booking Desktop Application. This project will be used to keep track of everyone cleanly.
+Restaurant Booking Desktop Application. This project will be used to keep track of everyone cleanly.
 
