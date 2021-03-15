@@ -67,13 +67,47 @@ button{
 
 @media only screen and (max-width:895px){
     .Login{
-        width:70%;
-
+        width:80%;
     }
 }
 
-@media only screen and (max-width:1000px){
+@media only screen and (max-width:530px){
+    .Login{
+        width:90%;
+    }
+}
+
+@media only screen and (max-width:1251px){
     .form-group label{
         font-size:16px;
+    }
+}
+
+@media only screen and (min-width: 450px){
+    .form-inline .form-group{
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-bottom: 0;
+    }
+}
+
+@media only screen and (max-height: 600px){
+
+    button {
+        margin-top:2px;
+        padding-top:4px;
+        padding-bottom:4px;
+        font-size:15px;
+        font-weight:800;
+        width:100%;
+        background-color:#E04E59;
+        color: #fff;
+        border: none;
     }
 }
