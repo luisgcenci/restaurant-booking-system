@@ -28,12 +28,6 @@
     font-size:18px;
 }
 
-@media only screen and(max-width:1251){
-    .form-group label{
-        font-size:16px;
-    }
-}
-
 .form-group .col-9 input{
     width: 100%;
 }
@@ -69,4 +63,17 @@ button{
 .form-control::placeholder{
     opacity:0.5;
     font-weight: normal;
+}
+
+@media only screen and (max-width:895px){
+    .Login{
+        width:70%;
+
+    }
+}
+
+@media only screen and (max-width:1000px){
+    .form-group label{
+        font-size:16px;
+    }
 }
