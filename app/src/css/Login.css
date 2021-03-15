@@ -1,0 +1,72 @@
+.Login{
+    height:100%;
+    width:40%;
+}
+
+.outer-row{
+    height:100%;
+    width:100%;
+    margin:0px;
+}
+
+.main-col{
+    height:40%;
+    width: 100%;
+    background-color: #4E59E0;
+    box-shadow: 10px 5px 15px rgb(32, 32, 32, 0.8);
+}
+
+.inner-row{
+    height:100%;
+    width:100%;
+    margin:0px;
+}
+
+.form-group label{
+    color:#fff;
+    text-align:left;
+    font-size:18px;
+}
+
+@media only screen and(max-width:1251){
+    .form-group label{
+        font-size:16px;
+    }
+}
+
+.form-group .col-9 input{
+    width: 100%;
+}
+
+.form-group .col-9{
+    padding:5px 15px;
+}
+
+.form-group .col-3{
+    padding:5px 15px;
+}
+
+button{
+    margin-top:5px;
+    padding-top:10px;
+    padding-bottom:10px;
+    font-size:20px;
+    font-weight:800;
+    width:100%;
+    background-color:#E04E59;
+    color: #fff;
+    border: none;
+}
+
+.form-group{
+    width:100%;
+}
+
+.form-row{
+    height:100%;
+}
+
+.form-control::placeholder{
+    opacity:0.5;
+    font-weight: normal;
+}
