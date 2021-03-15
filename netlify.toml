@@ -1,2 +1,2 @@
 [build]
-    base = "booking-app/"
+    base = "app/"
