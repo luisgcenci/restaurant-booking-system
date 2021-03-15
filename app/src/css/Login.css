@@ -1,0 +1,119 @@
+.Login{
+    height:100%;
+    width:40%;
+}
+
+.outer-row{
+    height:100%;
+    width:100%;
+    margin:0px;
+}
+
+.main-col{
+    height:40%;
+    width: 100%;
+    background-color: #4E59E0;
+    box-shadow: 10px 5px 15px rgb(32, 32, 32, 0.8);
+}
+
+@media only screen and (max-height:440px){
+    .main-col{
+        height:60%;
+    }
+}
+
+.inner-row{
+    height:100%;
+    width:100%;
+    margin:0px;
+}
+
+.form-group label{
+    color:#fff;
+    text-align:left;
+    font-size:18px;
+}
+
+.form-group .col-9 input{
+    width: 100%;
+}
+
+.form-group .col-9{
+    padding:5px 15px;
+}
+
+.form-group .col-3{
+    padding:5px 15px;
+}
+
+button{
+    margin-top:5px;
+    padding-top:10px;
+    padding-bottom:10px;
+    font-size:20px;
+    font-weight:800;
+    width:100%;
+    background-color:#E04E59;
+    color: #fff;
+    border: none;
+}
+
+.form-group{
+    width:100%;
+}
+
+.form-row{
+    height:100%;
+}
+
+.form-control::placeholder{
+    opacity:0.5;
+    font-weight: normal;
+}
+
+@media only screen and (max-width:895px){
+    .Login{
+        width:80%;
+    }
+}
+
+@media only screen and (max-width:530px){
+    .Login{
+        width:90%;
+    }
+}
+
+@media only screen and (max-width:1251px){
+    .form-group label{
+        font-size:16px;
+    }
+}
+
+@media only screen and (min-width: 450px){
+    .form-inline .form-group{
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-bottom: 0;
+    }
+}
+
+@media only screen and (max-height: 600px){
+
+    button {
+        margin-top:2px;
+        padding-top:4px;
+        padding-bottom:4px;
+        font-size:15px;
+        font-weight:800;
+        width:100%;
+        background-color:#E04E59;
+        color: #fff;
+        border: none;
+    }
+}
