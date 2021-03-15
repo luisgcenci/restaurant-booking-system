@@ -16,6 +16,12 @@
     box-shadow: 10px 5px 15px rgb(32, 32, 32, 0.8);
 }
 
+@media only screen and (max-height:440px){
+    .main-col{
+        height:60%;
+    }
+}
+
 .inner-row{
     height:100%;
     width:100%;
