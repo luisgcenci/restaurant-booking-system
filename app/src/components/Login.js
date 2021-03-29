@@ -1,25 +1,45 @@
 import '../css/Login.css';
-import fire from './Firebase.js';
-
-import React,{useState} from 'react';
+import fireb from './Firebase.js';
+import React,{useState, useEffect} from 'react';
+import { Redirect } from "react-router-dom";
 
 const Login = () => {
 
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
+    const [userEmail, setUserEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [userSignedIn, setUserSignedIn] = useState(false);
+
+    useEffect( () =>{
+
+        fireb.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                setUserSignedIn(true);
+            } else {
+            }
+        });
+
+        return () => setUserSignedIn(false);
+    })
 
     const handleLogin = (e) => {
 
-        fire.database().ref('users/' + username).set({
-        username: username,
-        password: password
-    });
-        setUsername("");
-        setPassword(""); 
+        e.preventDefault();
+        
+        fireb.auth().signInWithEmailAndPassword(userEmail, password)
+        .then((userCredential) => {
+          var user = userCredential.user;
+        })
+        .catch((error) => {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.log(errorMessage);
+        });
     }
 
-
     return (
+        userSignedIn?
+        <Redirect to="reservetable"/>
+        :
         <div className="Login container">
             <div className="row outer-row align-items-center justify-content-center">
                 <div className="col-12 main-col">
@@ -28,7 +48,7 @@ const Login = () => {
                                 <div className="form-group">
                                 <label htmlFor="" className ="col-3">Username</label>
                                 <div className="col-9">
-                                    <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder = "Enter Username" className="form-control"/>
+                                    <input type="text" value={userEmail} onChange={(e) => setUserEmail(e.target.value)} placeholder = "Enter Username" className="form-control"/>
                                 </div>
                                 <label htmlFor="" className ="col-3">Password</label>
                                 <div className="col-9">
