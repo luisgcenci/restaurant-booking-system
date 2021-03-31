@@ -2,9 +2,7 @@ import {
     Route,
     Redirect
 } from "react-router-dom";
-import {UseEffect} from 'react';
-import ReserveTable from './ReserveTable';
-import ClipLoader from "react-spinners/ClipLoader";
+import ReservePage from './ReservePage';
 
 
 const PrivateRoute = ({ component: Component, currentUser, ...rest}) => {
@@ -13,10 +11,9 @@ const PrivateRoute = ({ component: Component, currentUser, ...rest}) => {
         <Route {...rest} render={(props) =>(
             
             currentUser?
-            <ReserveTable currentUser={currentUser}/>
+            <ReservePage currentUser={currentUser}/>
             :
-            <Redirect to ="/login"/>
-            // <ClipLoader color={"#000000"} loading={true} css={""} size={150} />   
+            <Redirect to ="/login"/> 
         )} />
     )
 }

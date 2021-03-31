@@ -46,17 +46,17 @@ const Login = () => {
                         <div className="row form-row">
                             <form className="form-inline">
                                 <div className="form-group">
-                                <label htmlFor="" className ="col-3">Username</label>
-                                <div className="col-9">
-                                    <input type="text" value={userEmail} onChange={(e) => setUserEmail(e.target.value)} placeholder = "Enter Username" className="form-control"/>
-                                </div>
-                                <label htmlFor="" className ="col-3">Password</label>
-                                <div className="col-9">
-                                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder = "Enter Username" className="form-control"/>
-                                </div>
-                                <div className="col-9 offset-3">
-                                    <button onClick={handleLogin}type="submit">Log In</button>
-                                </div>
+                                    <label htmlFor="" className ="col-3">Username</label>
+                                    <div className="col-9">
+                                        <input type="text" value={userEmail} onChange={(e) => setUserEmail(e.target.value)} placeholder = "Enter Username" className="form-control"/>
+                                    </div>
+                                    <label htmlFor="" className ="col-3">Password</label>
+                                    <div className="col-9">
+                                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder = "Enter Username" className="form-control"/>
+                                    </div>
+                                    <div className="col-9 offset-3">
+                                        <button id = "defaultButton" onClick={handleLogin}type="submit">Log In</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>

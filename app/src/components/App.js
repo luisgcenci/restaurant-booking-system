@@ -1,7 +1,7 @@
 import '../css/App.css';
 import fireb from './Firebase.js';
 import Login from './Login';
-import ReserveTable from './ReserveTable'
+import ReservePage from './ReservePage'
 import PrivateRoute from './PrivateRoute'
 import {
   BrowserRouter as Router,

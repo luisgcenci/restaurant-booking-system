@@ -1,0 +1,78 @@
+.MainSection{
+    background: #4E59E0;
+    margin-top:50px;
+    margin-bottom:50px;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+.MainSection #titles{
+    text-align:center;
+    padding-top: 5%;
+    color: #FFFFFF;
+}
+
+input{
+    text-align:center;
+    width:100%;
+}
+
+.react-datepicker-wrapper{
+    width:100%;
+}
+
+.react-datepicker__input-container{
+    width:100%;
+}
+
+input::placeholder{
+    opacity:0.5;
+}
+
+#defaultButton{
+    width:100%;
+    margin:0px;
+    text-align:center;
+    font-size:20px;
+    font-weight:800;
+    width:100%;
+    background-color:#E04E59;
+    color: #fff;
+    border: none;
+    margin-top:20px;
+    padding: 10px 0px;
+    margin-bottom:5%;
+    border-radius:10px;
+}
+
+.css-yk16xz-control{
+    min-height:30px !important;
+    height: 30px !important;
+    border-radius:0px !important;
+}
+
+.css-g1d714-ValueContainer{
+    padding: 1px 2px !important;
+    width:90%;
+    height:100%;
+    position:absolute;
+}
+
+.css-1hb7zxy-IndicatorsContainer{
+    position:absolute;
+    width:10%;
+    height:100%;
+    left:90%;
+}
+
+.css-1wa3eu0-placeholder{
+    opacity:0.5 !important;
+}
+
+.css-1uccc91-singleValue{
+    width:100%;
+    text-align:center;
+}
+
+.loader{
+    text-align:center;
+}
