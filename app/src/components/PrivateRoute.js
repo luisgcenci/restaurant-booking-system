@@ -5,16 +5,15 @@ import {
 import ReservePage from './ReservePage';
 
 
-const PrivateRoute = ({ component: Component, currentUser, ...rest}) => {
+const PrivateRoute = ({ component: Component, currentUser, component, ...rest}) => {
     
-    return ( 
+    return (
         <Route {...rest} render={(props) =>(
-            
             currentUser?
-            <ReservePage currentUser={currentUser}/>
+            <Component {...component} currentUser = {currentUser} />
             :
-            <Redirect to ="/login"/> 
-        )} />
+            <Redirect to ="/login"/>
+        )}/>
     )
 }
 

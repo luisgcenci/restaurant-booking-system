@@ -3,6 +3,7 @@ import fireb from './Firebase.js';
 import Login from './Login';
 import ReservePage from './ReservePage'
 import PrivateRoute from './PrivateRoute'
+import TableView from './TableView'
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,6 +11,7 @@ import {
   Link
 } from "react-router-dom";
 import React, {useState, useEffect} from 'react';
+import { LastLocationProvider } from 'react-router-last-location';
 
 
 const App = () => {
@@ -28,11 +30,23 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path={["/", "/login"]}>
-          <Login/>
-        </Route>
-        <PrivateRoute exact path = {"/reservetable"} currentUser = {currentUser}>
-        </PrivateRoute>
+        <LastLocationProvider>
+          <Route exact path={["/", "/login"]}>
+            <LastLocationProvider>
+              <Login/>
+            </LastLocationProvider>
+          </Route>
+          <PrivateRoute 
+            exact path = {"/reservetable"} 
+            currentUser = {currentUser} 
+            component={ReservePage}>
+          </PrivateRoute>
+          <PrivateRoute
+            exact path = {"/tableview"} 
+            currentUser = {currentUser} 
+            component={TableView}>
+          </PrivateRoute>
+        </LastLocationProvider>
       </Switch>
     </Router>
   )};

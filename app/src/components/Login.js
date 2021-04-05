@@ -2,12 +2,16 @@ import '../css/Login.css';
 import fireb from './Firebase.js';
 import React,{useState, useEffect} from 'react';
 import { Redirect } from "react-router-dom";
+import { useLastLocation } from 'react-router-last-location';
+import ClipLoader from "react-spinners/ClipLoader";
 
 const Login = () => {
 
     const [userEmail, setUserEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [userSignedIn, setUserSignedIn] = useState(false);
+    const [userSignedIn, setUserSignedIn] = useState(null);
+
+    const lastLocation = useLastLocation();
 
     useEffect( () =>{
 
@@ -15,10 +19,9 @@ const Login = () => {
             if (user) {
                 setUserSignedIn(true);
             } else {
+                setUserSignedIn(false);
             }
         });
-
-        return () => setUserSignedIn(false);
     })
 
     const handleLogin = (e) => {
@@ -35,10 +38,19 @@ const Login = () => {
           console.log(errorMessage);
         });
     }
-
+    
     return (
+        userSignedIn==null?
+        <div className="container MainSection">
+            <div className="row justify-content-center">
+                <div className="col-12 loader">
+                    <ClipLoader color={"#000000"} loading={true} css={"text-align:center"} size={400} /> 
+                </div>
+            </div>
+        </div>
+        :
         userSignedIn?
-        <Redirect to="reservetable"/>
+        <Redirect to={lastLocation==null?'/reservetable':lastLocation['pathname']}/>
         :
         <div className="Login container">
             <div className="row outer-row align-items-center justify-content-center">
@@ -52,7 +64,7 @@ const Login = () => {
                                     </div>
                                     <label htmlFor="" className ="col-3">Password</label>
                                     <div className="col-9">
-                                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder = "Enter Username" className="form-control"/>
+                                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder = "Enter Password" className="form-control"/>
                                     </div>
                                     <div className="col-9 offset-3">
                                         <button id = "defaultButton" onClick={handleLogin}type="submit">Log In</button>

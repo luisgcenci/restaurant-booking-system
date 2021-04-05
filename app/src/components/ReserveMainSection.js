@@ -1,4 +1,5 @@
 import React,{useState, useEffect} from 'react';
+import { Redirect, Link } from "react-router-dom";
 import fireb from './Firebase.js';
 import DatePicker from 'react-datepicker';
 import Select from 'react-select';
@@ -33,7 +34,7 @@ const ReserveMainSection = () => {
 
         starCountRef.on('value', (snapshot) => {
             data = snapshot.val();
-
+            
             Object.keys(data).map( d => {
             
                 if (d.toString() === dayOfWeek){
@@ -151,7 +152,14 @@ const ReserveMainSection = () => {
                     />
                 </div>
                 <div className="col-12">
-                    <button id ="defaultButton">SEE TABLES</button>
+                    <Link to={{
+                        pathname: "/tableview",
+                        state:{
+                            customerFName : customerFirstName,
+                            customerLName : customerLastName
+                        }
+                    }}>
+                    <button id ="defaultButton">SEE TABLES</button></Link>
                 </div>
             </div>
         </div>
