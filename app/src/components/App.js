@@ -1,4 +1,5 @@
 import '../css/App.css';
+<<<<<<< HEAD
 import fireb from './Firebase.js';
 import Login from './Login';
 import ReservePage from './ReservePage'
@@ -49,6 +50,15 @@ const App = () => {
         </LastLocationProvider>
       </Switch>
     </Router>
+=======
+import Login from './Login';
+
+function App() {
+  return (
+    <>
+      <Login />
+    </>
+>>>>>>> dc39a276ab24a64603f5633528b55556894949c1
   )};
 
 export default App;

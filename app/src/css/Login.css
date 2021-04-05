@@ -1,4 +1,5 @@
 .Login{
+<<<<<<< HEAD
     min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
     min-height: 100vh; /* These two lines are counted as one :-)       */
     display: flex;
@@ -7,10 +8,40 @@
 
 .main-col{
     padding:50px;
+=======
+    height:100%;
+    width:40%;
+}
+
+.outer-row{
+    height:100%;
+    width:100%;
+    margin:0px;
+}
+
+.main-col{
+    height:40%;
+    width: 100%;
+>>>>>>> dc39a276ab24a64603f5633528b55556894949c1
     background-color: #4E59E0;
     box-shadow: 10px 5px 15px rgb(32, 32, 32, 0.8);
 }
 
+<<<<<<< HEAD
+=======
+@media only screen and (max-height:440px){
+    .main-col{
+        height:60%;
+    }
+}
+
+.inner-row{
+    height:100%;
+    width:100%;
+    margin:0px;
+}
+
+>>>>>>> dc39a276ab24a64603f5633528b55556894949c1
 .form-group label{
     color:#fff;
     text-align:left;
@@ -29,13 +60,21 @@
     padding:5px 15px;
 }
 
+<<<<<<< HEAD
 #defaultButton{
+=======
+button{
+    margin-top:5px;
+    padding-top:10px;
+    padding-bottom:10px;
+>>>>>>> dc39a276ab24a64603f5633528b55556894949c1
     font-size:20px;
     font-weight:800;
     width:100%;
     background-color:#E04E59;
     color: #fff;
     border: none;
+<<<<<<< HEAD
     margin:0px ;
     margin-top:20px;
     padding: 10px 0px;
@@ -44,6 +83,8 @@
 .form-control::placeholder{
     opacity:0.5;
     font-weight: normal;
+=======
+>>>>>>> dc39a276ab24a64603f5633528b55556894949c1
 }
 
 .form-group{
@@ -54,11 +95,20 @@
     height:100%;
 }
 
+<<<<<<< HEAD
 .outer-row{
     width:100%;
 }
 
 /* @media only screen and (max-width:895px){
+=======
+.form-control::placeholder{
+    opacity:0.5;
+    font-weight: normal;
+}
+
+@media only screen and (max-width:895px){
+>>>>>>> dc39a276ab24a64603f5633528b55556894949c1
     .Login{
         width:80%;
     }
@@ -76,7 +126,23 @@
     }
 }
 
+<<<<<<< HEAD
 
+=======
+@media only screen and (min-width: 450px){
+    .form-inline .form-group{
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-bottom: 0;
+    }
+}
+>>>>>>> dc39a276ab24a64603f5633528b55556894949c1
 
 @media only screen and (max-height: 600px){
 
@@ -91,4 +157,8 @@
         color: #fff;
         border: none;
     }
+<<<<<<< HEAD
 } */
+=======
+}
+>>>>>>> dc39a276ab24a64603f5633528b55556894949c1
