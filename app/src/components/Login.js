@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import '../css/Login.css';
 import fireb from './Firebase.js';
 import React,{useState, useEffect} from 'react';
@@ -53,19 +52,10 @@ const Login = () => {
         userSignedIn?
         <Redirect to={lastLocation==null?'/reservetable':lastLocation['pathname']}/>
         :
-=======
-import '../css/Login.css'
-
-import React from 'react';
-
-const Login = () => {
-    return (
->>>>>>> dc39a276ab24a64603f5633528b55556894949c1
         <div className="Login container">
             <div className="row outer-row align-items-center justify-content-center">
                 <div className="col-12 main-col">
                         <div className="row form-row">
-<<<<<<< HEAD
                             <form className="form-inline">
                                 <div className="form-group">
                                     <label htmlFor="" className ="col-3">Username</label>
@@ -81,23 +71,6 @@ const Login = () => {
                                     </div>
                                 </div>
                             </form>
-=======
-                            <div className="form-inline">
-                                <div className="form-group">
-                                <label htmlFor="" className ="col-3">Username</label>
-                                <div className="col-9">
-                                    <input type="text" placeholder = "Enter Username" className="form-control"/>
-                                </div>
-                                <label htmlFor="" className ="col-3">Password</label>
-                                <div className="col-9">
-                                    <input type="text" placeholder = "Enter Username" className="form-control"/>
-                                </div>
-                                <div className="col-9 offset-3">
-                                    <button type="submit">Log In</button>
-                                </div>
-                                </div>
-                            </div>
->>>>>>> dc39a276ab24a64603f5633528b55556894949c1
                         </div>
                 </div>
             </div>
@@ -105,8 +78,4 @@ const Login = () => {
     );
 }
 
-<<<<<<< HEAD
 export default Login;
-=======
-export default Login;
->>>>>>> dc39a276ab24a64603f5633528b55556894949c1
