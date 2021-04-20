@@ -1,0 +1,9 @@
+.konvajs-content{
+
+    padding:0px  !important;
+    width: inherit !important;
+}
+
+canvas{
+    width:100% !important;
+}

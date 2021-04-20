@@ -1,0 +1,44 @@
+.TableView{
+    height:100%;
+    background-color:#D6D6D6;
+}
+
+.TableView .info{
+    text-align:center;
+    background-color: #4E59E0;
+    border:1px solid #FFF;
+}
+
+.TableView .info p{
+    margin:2px 0;
+    color: #FFF;
+}
+
+.TableView .exit{
+    top:0;
+    text-align:center;
+    background-color: #4E59E0;
+    border:1px solid white;
+    padding-top:15px;
+}
+
+.TableView .exit a{
+    color: #FFC700; 
+}
+
+.canvas-area .row{
+    position:relative;
+}
+
+.canvas-area{
+    padding:0px;
+}
+
+.canvas-area .col-3{
+    padding:0px;
+    text-align:right;
+}
+
+.canvas-area .col-2{
+    padding:0px;
+}

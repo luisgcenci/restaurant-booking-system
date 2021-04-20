@@ -1,13 +1,15 @@
 import React,{useState, useEffect} from 'react';
-import { Redirect, Link } from "react-router-dom";
-import fireb from './Firebase.js';
+import { Link } from "react-router-dom";
+import firebase from './Firebase.js';
+import "firebase/auth";
+import "firebase/database";
 import DatePicker from 'react-datepicker';
 import Select from 'react-select';
 import ClipLoader from "react-spinners/ClipLoader";
 import '../css/ReserveMainSection.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const ReserveMainSection = () => {
+const ReserveMainSection = ({currentUser}) => {
 
     const [datePicked, setDatePicket] = useState(new Date());
     const [startTimeDefault, setStartTimeDefault] = useState(undefined);
@@ -28,7 +30,7 @@ const ReserveMainSection = () => {
         var dayOfWeek = new Date().getDay();
         dayOfWeek = daysOfWeekAsString[dayOfWeek];
 
-        var starCountRef = fireb.database().ref('/company/operation/');
+        var starCountRef = firebase.database().ref('/company/operation/');
         var data = undefined;
         var options = [];
 
@@ -68,9 +70,11 @@ const ReserveMainSection = () => {
                     }
                     
                 }
+
+                return 0;
     
             });
-        
+
             setStartTimeDefault(options[0]);
             setEndTimeDefault(options[2]);
             setTimeOptions(options);
@@ -82,12 +86,12 @@ const ReserveMainSection = () => {
     useEffect( () =>{
 
         setUpTimeInfo();
-    }, [])
+    }, [])   
 
-    const database = fireb.database();
+    // const database = fireb.database();
 
     return (
-        startTimeDefault && endTimeDefault && timeOptions?
+        startTimeDefault && endTimeDefault?
         <div className="container MainSection">
             <div className="row">
                 <div className="col-12">
@@ -155,9 +159,14 @@ const ReserveMainSection = () => {
                     <Link to={{
                         pathname: "/tableview",
                         state:{
+                            datePicked : datePicked,
+                            startTime : startTimeDefault.value,
+                            endTime : startTimeDefault.value,
                             customerFName : customerFirstName,
-                            customerLName : customerLastName
-                        }
+                            customerLName : customerLastName,
+                            numberOfPeople : numberOfPeople,
+                            currentUser : currentUser
+                        }   
                     }}>
                     <button id ="defaultButton">SEE TABLES</button></Link>
                 </div>

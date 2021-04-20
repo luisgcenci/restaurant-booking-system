@@ -7,8 +7,7 @@ import TableView from './TableView'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import React, {useState, useEffect} from 'react';
 import { LastLocationProvider } from 'react-router-last-location';
@@ -33,17 +32,17 @@ const App = () => {
         <LastLocationProvider>
           <Route exact path={["/", "/login"]}>
             <LastLocationProvider>
-              <Login/>
+              <Login currentUser = {currentUser}/>
             </LastLocationProvider>
           </Route>
           <PrivateRoute 
             exact path = {"/reservetable"} 
             currentUser = {currentUser} 
-            component={ReservePage}>
-          </PrivateRoute>
+            component={ReservePage}
+          />
           <PrivateRoute
-            exact path = {"/tableview"} 
-            currentUser = {currentUser} 
+            exact path = {"/tableview"}
+            currentUser = {currentUser}
             component={TableView}>
           </PrivateRoute>
         </LastLocationProvider>

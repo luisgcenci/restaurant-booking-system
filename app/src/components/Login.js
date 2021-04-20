@@ -1,11 +1,12 @@
 import '../css/Login.css';
-import fireb from './Firebase.js';
+import firebase from './Firebase.js';
+import "firebase/auth";
 import React,{useState, useEffect} from 'react';
 import { Redirect } from "react-router-dom";
 import { useLastLocation } from 'react-router-last-location';
 import ClipLoader from "react-spinners/ClipLoader";
 
-const Login = () => {
+const Login = ({currentUser}) => {
 
     const [userEmail, setUserEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -15,30 +16,29 @@ const Login = () => {
 
     useEffect( () =>{
 
-        fireb.auth().onAuthStateChanged(function(user) {
+        firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
                 setUserSignedIn(true);
             } else {
                 setUserSignedIn(false);
             }
         });
-    })
+    }, [])
 
     const handleLogin = (e) => {
 
         e.preventDefault();
         
-        fireb.auth().signInWithEmailAndPassword(userEmail, password)
+        firebase.auth().signInWithEmailAndPassword(userEmail, password)
         .then((userCredential) => {
-          var user = userCredential.user;
+        //   var user = userCredential.user;
         })
         .catch((error) => {
-          var errorCode = error.code;
           var errorMessage = error.message;
           console.log(errorMessage);
         });
     }
-    
+
     return (
         userSignedIn==null?
         <div className="container MainSection">
@@ -50,7 +50,12 @@ const Login = () => {
         </div>
         :
         userSignedIn?
-        <Redirect to={lastLocation==null?'/reservetable':lastLocation['pathname']}/>
+        <Redirect 
+            to={{
+                pathname: lastLocation==null?'/reservetable':lastLocation['pathname'],
+                state: {currentUser : currentUser}
+            }}
+        />
         :
         <div className="Login container">
             <div className="row outer-row align-items-center justify-content-center">

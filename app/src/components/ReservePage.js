@@ -5,14 +5,15 @@ import ReserveMainSection from './ReserveMainSection';
 import ReserveUserSection from './ReserveUserSection';
 import ClipLoader from "react-spinners/ClipLoader";
 
-const ReservePage = ({currentUser}) => {
+const ReservePage = (props) => {
 
-    const [loggedIn, setLoggedIn] = useState(currentUser==null?false:true);
+    const [loggedIn, setLoggedIn] = useState(props.location.state.currentUser==null?false:true);
     
-
     const logOutHandler = (userStatus) =>{
         setLoggedIn(userStatus);
     }
+
+    const currentUser = props.location.state.currentUser;
 
     return (
         loggedIn==null?
@@ -26,8 +27,8 @@ const ReservePage = ({currentUser}) => {
         :
         loggedIn?
         <>  
-            <ReserveUserSection currentUser = {currentUser} logOutHandler = {logOutHandler}></ReserveUserSection>
-            <ReserveMainSection/>
+            <ReserveUserSection currentUser = {currentUser} logOutHandler = {logOutHandler}/>
+            <ReserveMainSection currentUser = {currentUser} />
         </>
         :
         <Redirect to ="/login"/>
