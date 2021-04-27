@@ -1,27 +1,51 @@
-import React, {useState} from 'react';
+import React, {useState}    from 'react';
 import {Stage, Layer, Line} from 'react-konva'
+import TypeThreeTable       from './TypeThreeTable'
 import '../css/TablesTypeTwo.css'
-import TypeThreeTable from './TypeThreeTable'
 
 const TablesTypeThree = (props) => {
-
-    const xStart = 50;
-    const yStart = 20;
-    const yDistance = 250;
+    
+    const x                      = props.x;
+    const y                      = 20;
+    const yDistance              = 250;
     const tableDistanceFromWalls = 40;
-    const width = 80;
-    const height = 120;
+    const width                  = 80;
+    const height                 = 120;
+
+    const getTableYDistance = (index) =>{
+        return (yDistance * index) + y + tableDistanceFromWalls;
+    }
 
     return (
-        <div>
-        <Stage width={window.innerWidth / 5} height={800}>
-            <Layer>
-                <TypeThreeTable id = {1} x = {xStart + tableDistanceFromWalls} y = {yStart + tableDistanceFromWalls} width = {width} height = {height} color = {'#E04E59'}/>
-                <TypeThreeTable id = {2} x = {xStart + tableDistanceFromWalls} y = {(yDistance * 1) + yStart + tableDistanceFromWalls} width = {width} height = {height} color = {'#E04E59'}/>
-                <TypeThreeTable id = {3} x = {xStart + tableDistanceFromWalls} y = {(yDistance * 2) + yStart + tableDistanceFromWalls} width = {width} height = {height} color = {'#E04E59'}/>
-            </Layer>
-      </Stage>
-        </div>
+        <>
+            <TypeThreeTable 
+                id              = {props.ids[0]}
+                x               = {x} 
+                y               = {getTableYDistance(0)} 
+                width           = {width} 
+                height          = {height} 
+                handleHovering  = {props.handleHovering}
+                handlePopUp     = {props.handlePopUp} 
+            />
+            <TypeThreeTable 
+                id              = {props.ids[1]} 
+                x               = {x} 
+                y               = {getTableYDistance(1)} 
+                width           = {width} 
+                height          = {height} 
+                handleHovering  = {props.handleHovering}
+                handlePopUp     = {props.handlePopUp} 
+            />
+            <TypeThreeTable 
+                id              = {props.ids[2]} 
+                x               = {x} 
+                y               = {getTableYDistance(2)} 
+                width           = {width} 
+                height          = {height} 
+                handleHovering  = {props.handleHovering}
+                handlePopUp     = {props.handlePopUp} 
+            />
+        </>
     );
 }
 

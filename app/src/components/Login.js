@@ -1,27 +1,27 @@
+import firebase                     from './Firebase.js';
+import React,{useState, useEffect}  from 'react';
+import { Redirect }                 from "react-router-dom";
+import { useLastLocation }          from 'react-router-last-location';
+import ClipLoader                   from "react-spinners/ClipLoader";
 import '../css/Login.css';
-import firebase from './Firebase.js';
 import "firebase/auth";
-import React,{useState, useEffect} from 'react';
-import { Redirect } from "react-router-dom";
-import { useLastLocation } from 'react-router-last-location';
-import ClipLoader from "react-spinners/ClipLoader";
 
 const Login = ({currentUser}) => {
 
-    const [userEmail, setUserEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [userSignedIn, setUserSignedIn] = useState(null);
+    const [userEmail, setUserEmail]         = useState("");
+    const [password, setPassword]           = useState("");
+    const [userSignedIn, setUserSignedIn]   = useState(null);
 
-    const lastLocation = useLastLocation();
+    const lastLocation  = useLastLocation();
 
     useEffect( () =>{
 
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
                 setUserSignedIn(true);
-            } else {
-                setUserSignedIn(false);
+                return;
             }
+            setUserSignedIn(false);
         });
     }, [])
 
@@ -44,7 +44,12 @@ const Login = ({currentUser}) => {
         <div className="container MainSection">
             <div className="row justify-content-center">
                 <div className="col-12 loader">
-                    <ClipLoader color={"#000000"} loading={true} css={"text-align:center"} size={400} /> 
+                    <ClipLoader 
+                        color={"#000000"} 
+                        loading={true} 
+                        css={"text-align:center"} 
+                        size={400} 
+                    /> 
                 </div>
             </div>
         </div>
@@ -52,8 +57,8 @@ const Login = ({currentUser}) => {
         userSignedIn?
         <Redirect 
             to={{
-                pathname: lastLocation==null?'/reservetable':lastLocation['pathname'],
-                state: {currentUser : currentUser}
+                pathname    : lastLocation==null?'/reservetable':lastLocation['pathname'],
+                state       : {currentUser : currentUser}
             }}
         />
         :

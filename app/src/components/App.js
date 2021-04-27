@@ -1,17 +1,12 @@
+import fireb                                    from './Firebase.js';
+import Login                                    from './Login';
+import ReservePage                              from './ReservePage'
+import PrivateRoute                             from './PrivateRoute'
+import TableView                                from './TableView'
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import React, {useState, useEffect}             from 'react';
+import { LastLocationProvider }                 from 'react-router-last-location';
 import '../css/App.css';
-import fireb from './Firebase.js';
-import Login from './Login';
-import ReservePage from './ReservePage'
-import PrivateRoute from './PrivateRoute'
-import TableView from './TableView'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
-import React, {useState, useEffect} from 'react';
-import { LastLocationProvider } from 'react-router-last-location';
-
 
 const App = () => {
 
@@ -21,7 +16,6 @@ const App = () => {
     fireb.auth().onAuthStateChanged(function(user) {
       if (user) {
         setCurrentUser(user.email)
-      } else {
       }
     });
   })
@@ -32,18 +26,20 @@ const App = () => {
         <LastLocationProvider>
           <Route exact path={["/", "/login"]}>
             <LastLocationProvider>
-              <Login currentUser = {currentUser}/>
+              <Login 
+                currentUser = {currentUser}
+              />
             </LastLocationProvider>
           </Route>
           <PrivateRoute 
-            exact path = {"/reservetable"} 
+            exact path  = {"/reservetable"} 
             currentUser = {currentUser} 
-            component={ReservePage}
+            component   = {ReservePage}
           />
           <PrivateRoute
-            exact path = {"/tableview"}
+            exact path  = {"/tableview"}
             currentUser = {currentUser}
-            component={TableView}>
+            component   = {TableView}>
           </PrivateRoute>
         </LastLocationProvider>
       </Switch>

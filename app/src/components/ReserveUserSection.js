@@ -1,17 +1,18 @@
-import React,{useState, useEffect} from 'react';
-import fireb from './Firebase.js';
+import React,{useState, useEffect}  from 'react';
+import fireb                        from './Firebase.js';
+import moment                       from 'moment';
 import '../css/ReserveUserSection.css'
 
 const ReserveUserSection = ({currentUser, logOutHandler}) => {
 
     //user session
-    const [date, setDate] = useState(new Date().toLocaleDateString("en-US"));
-    const [time, setTime] = useState(new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds());
+    const [date, setDate] = useState(moment().format('L'));
+    const [time, setTime] = useState(moment().format('hh:mm:ss a'));
 
     useEffect( () =>{
         setInterval( () => {
-            setDate(new Date().toLocaleDateString("en-US"));
-            setTime(new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds());
+            setDate(moment().format('L'));
+            setTime(moment().format('hh:mm:ss a'));
         }, 1000)
 
         // return (setDate(""), setTime(""));

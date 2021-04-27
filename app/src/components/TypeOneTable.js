@@ -1,23 +1,99 @@
-import React, {useState} from 'react';
-import {Rect, Text, Circle, Line} from 'react-konva'
+import React, {useState}            from 'react';
+import {Rect, Text, Circle, Line}   from 'react-konva'
+import '../css/TypeOneTable.css'
 
 const TypeOneTable = (props) => {
 
-    const [id, setId] = useState(props.id);
-    const [canvasWidth, setX] = useState(props.canvasWidth);
-    const [y, setY] = useState(props.y);
-    const [width, setWidth] = useState(props.width);
-    const [height, setHeight] = useState(props.height);
-    const [color, setColor] = useState(props.color);
+    const id                = props.id[0];
+    const status            = props.id[1];
+    const x                 = props.x;
+    const y                 = props.y;
+    const width             = props.width;
+    const height            = props.height;
+    const handlePopUp       = props.handlePopUp;
+    const handleHovering    = props.handleHovering;
 
+
+    const handleClick = (e) =>{
+        handlePopUp(true, id);
+    }
+
+    const handleHover = (e) =>{
+        if(e.type       == 'mouseenter'){
+            handleHovering(true);
+        }
+        else if(e.type  == 'mouseleave'){
+            handleHovering(false);
+        }
+    }
+
+    /** RECTANGLES */
+
+    //main table rect
+    const tableRectProps = {
+        x                   : x,
+        y                   : y,
+        width               : width,
+        height              : height,
+        fill                : status? "rgb(202, 71, 81, .2)" : "#CA4751"
+    }
+
+    //select table rect
+    const selectRectProps = {
+        x                   : (tableRectProps.x + tableRectProps.width)     - (tableRectProps.width / 3),
+        y                   : (tableRectProps.y + tableRectProps.height)    - (tableRectProps.height / 3),
+        width               : tableRectProps.width  / 3,
+        height              : tableRectProps.height / 3,
+        fill                : status? "rgb(81, 202, 81, .2)" : "#51CA47",
+        stroke              : status? "rgb(78, 89, 224, .2)" : "#4E59E0"
+    }
+    
+    /** TEXTS */
+    const textXoffset = 10;
+    const textYoffset = 5;
+
+    const textSelectProps = {
+        text                : "SELECT",
+        fontSize            : 10,
+        x                   : selectRectProps.x + textXoffset,
+        y                   : selectRectProps.y + textYoffset,
+        fill                : status? "rgb(255, 255, 255, .2)" : "#FFF",
+        fontFamily          : "'Poppins', sans-serif"
+    }
+
+    const textTableProps = {
+        text                : "TABLE",
+        fontSize            : 10,
+        x                   : selectRectProps.x + textXoffset + 1,
+        y                   : selectRectProps.y + 12 + textYoffset,
+        fill                : status? "rgb(255, 255, 255, .2)" : "#FFF",
+        fontFamily          : "'Poppins', sans-serif"
+    }
+    
     return (
-        <Rect
-        x={(canvasWidth / 2) - (width / 2)}
-        y={y}
-        width={width}
-        height={height}
-        fill={color}
-        />
+        <>  
+            <Rect 
+                {...tableRectProps}
+            />
+            <Rect   
+                {...selectRectProps}  
+                onClick         = {handleClick}
+                onMouseEnter    = {handleHover} 
+                onMouseLeave    = {handleHover}
+            />
+            <Text 
+                {...textSelectProps}  
+                onClick         = {handleClick} 
+                onMouseEnter    = {handleHover} 
+                onMouseLeave    = {handleHover}
+            />
+            <Text 
+                {...textTableProps}   
+                onClick         = {handleClick} 
+                onMouseEnter    = {handleHover} 
+                onMouseLeave    = {handleHover}
+            />
+        </>
     );
 }
 
