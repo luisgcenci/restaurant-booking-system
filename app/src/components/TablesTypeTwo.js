@@ -11,6 +11,7 @@ const TablesTypeTwo = (props) => {
     const tableDistanceFromWalls    = 40;
     const width                     = 140;
     const height                    = 70;
+    const ids                       = Array.from(props.ids);
 
     const getTableYDistance = (index) =>{
         return (yDistance * index) + y + tableDistanceFromWalls
@@ -19,7 +20,7 @@ const TablesTypeTwo = (props) => {
     return (
         <>
             <TypeTwoTable 
-                id                  = {props.ids[0]} 
+                id                  = {ids[0]} 
                 x                   = {x} 
                 y                   = {getTableYDistance(0)} 
                 width               = {width} 
@@ -28,7 +29,7 @@ const TablesTypeTwo = (props) => {
                 handlePopUp         = {props.handlePopUp}  
             />
             <TypeTwoTable 
-                id                  = {props.ids[1]} 
+                id                  = {ids[1]} 
                 x                   = {x} 
                 y                   = {getTableYDistance(1)} 
                 width               = {width} 
@@ -37,7 +38,7 @@ const TablesTypeTwo = (props) => {
                 handlePopUp         = {props.handlePopUp} 
             />
             <TypeTwoTable 
-                id                  = {props.ids[2]} 
+                id                  = {[2]} 
                 x                   = {x} 
                 y                   = {getTableYDistance(2)} 
                 width               = {width} 
@@ -46,7 +47,7 @@ const TablesTypeTwo = (props) => {
                 handlePopUp         = {props.handlePopUp} 
             />
             <TypeTwoTable 
-                id                  = {props.ids[3]} 
+                id                  = {[3]} 
                 x                   = {x} 
                 y                   = {getTableYDistance(3)} 
                 width               = {width} 

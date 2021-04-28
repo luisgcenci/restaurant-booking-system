@@ -3,7 +3,8 @@ import {Rect, Text, Circle, Line}   from 'react-konva'
 
 const TypeThreeTable = (props) => {
 
-    const id                = props.id;
+    const id                = props.id[0];
+    const status            = props.id[1];
     const x                 = props.x;
     const y                 = props.y;
     const width             = props.width;
@@ -33,7 +34,7 @@ const TypeThreeTable = (props) => {
         y                   : props.y,
         width               : props.width,
         height              : props.height,
-        fill                : "#CA4751",
+        fill                : status? "rgb(202, 71, 81, .2)" : "#CA4751"
     }
 
     //select table rect
@@ -42,8 +43,8 @@ const TypeThreeTable = (props) => {
         y                   : (tableRectProps.y + tableRectProps.height)    - (tableRectProps.height / 4),
         width               : tableRectProps.width,
         height              : tableRectProps.height / 4,
-        fill                : "#51CA47",
-        stroke              : "#4E59E0"
+        fill                : status? "rgb(81, 202, 81, .2)" : "#51CA47",
+        stroke              : status? "rgb(78, 89, 224, .2)" : "#4E59E0"
     }
 
     /** TEXTS */
@@ -55,7 +56,7 @@ const TypeThreeTable = (props) => {
         fontSize            : 10,
         x                   : selectRectProps.x + textXoffset,
         y                   : selectRectProps.y + textYoffset,
-        fill                : "#FFF",
+        fill                : status? "rgb(255, 255, 255, .2)" : "#FFF",
         fontFamily          : "'Poppins', sans-serif"
     }
 
@@ -64,7 +65,7 @@ const TypeThreeTable = (props) => {
         fontSize            : 10,
         x                   : selectRectProps.x + textXoffset + 2,
         y                   : selectRectProps.y + 12 + textYoffset,
-        fill                : "#FFF",
+        fill                : status? "rgb(255, 255, 255, .2)" : "#FFF",
         fontFamily          : "'Poppins', sans-serif"
     }       
 
