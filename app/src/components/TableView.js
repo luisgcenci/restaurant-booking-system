@@ -12,12 +12,12 @@ import '../css/TableView.css'
 
 const TableView = (props) => {
 
-    const [loggedIn, setloggedIn]                   = useState(props.location.state.currentUser? true : false);
+    const [loggedIn         , setloggedIn]          = useState(props.location.state.currentUser? true : false);
     const [customerFirstName, setCustomerFirstName] = useState(props.location.state.customerFName);
     const [customerLastName , setCustomerLastName]  = useState(props.location.state.customerLName);
     const [numberOfPeople   , setNumberOfPeople]    = useState(props.location.state.numberOfPeople);
     const [currentUser      , setCurrentUser]       = useState(props.location.state.currentUser);
-    const [hovering         , setHovering]          = useState(false);
+    const [hovering         , setHovering]          = useState('default');
     const [openPopUp        , setopenPopUp]         = useState(false);
     const [tableIdPicked    , setTableIdPicked]     = useState(undefined);
     const [startDate        , setStartDate]         = useState(moment(props.location.state.startDate));
@@ -41,6 +41,7 @@ const TableView = (props) => {
                 
                 let dbTodayDateFormatted    = startDate.format('L').replaceAll('/','-');
                 let reservations            = data[d]['reservations'];
+                
                 if (reservations){
                     let todayReservations = reservations[dbTodayDateFormatted];
                     
@@ -51,7 +52,16 @@ const TableView = (props) => {
                             let from = moment(todayReservations[r]['from']);
                             let to = moment(todayReservations[r]['to']);
     
-                            booked = startDate.isBetween(from, to, undefined, '[]')? true : false;
+                            booked =    startDate.isBetween(from   , to, undefined, '[)')   | 
+                                        endDate.isBetween(from, to, undefined, '(]')        |
+                                        from.isBetween(startDate, endDate, undefined, '()') |
+                                        to.isBetween(startDate, endDate, undefined, '()')
+                            ? true 
+                            : false;
+
+                            if (!booked){
+
+                            }
                         })
     
                     }
@@ -64,8 +74,8 @@ const TableView = (props) => {
         });
     }, [])
 
-    const handleHovering    = (hovering)        =>{
-        setHovering(hovering);
+    const handleHovering    = (h)        =>{
+        setHovering(h);
     }
 
     const handlePopUp       = (openPopUp, id)   =>{
@@ -79,7 +89,6 @@ const TableView = (props) => {
         dateFormatted       = dateFormatted.replaceAll("/","-");
         let r               = Math.random().toString(36).substr(2, 9);
         handlePopUp(false);
-        console.log(dateFormatted)
         database.ref('company/tables/' + tableIdPicked + "/reservations/" + dateFormatted + "/" + r + "/"
         
         ).set({
@@ -117,7 +126,7 @@ const TableView = (props) => {
         </div>
         :
         loggedIn?
-        <div className="TableView" style={{cursor:hovering?'pointer':'default'}}>
+        <div className="TableView" style={{cursor: hovering}}>
             <div className = "container-fluid user-section">
                 <div className="row">
                     <div className="col-md-1 col-6 offset-md-4 exit">

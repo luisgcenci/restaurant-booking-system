@@ -4,7 +4,7 @@ import {Rect, Text, Circle, Line}   from 'react-konva'
 const TypeTwoTable = (props) => {
 
     const id                = props.id[0];
-    const status            = props.id[1];
+    const booked            = props.id[1];
     const x                 = props.x;
     const y                 = props.y;
     const width             = props.width;
@@ -33,7 +33,7 @@ const TypeTwoTable = (props) => {
         y                   : y,
         width               : width,
         height              : height,
-        fill                : status? "rgb(202, 71, 81, .2)" : "#CA4751"
+        fill                : booked? "rgb(202, 71, 81, .2)" : "#CA4751"
     }
 
     //select table rect
@@ -42,8 +42,8 @@ const TypeTwoTable = (props) => {
         y                   : (tableRectProps.y + tableRectProps.height)    - (tableRectProps.height    / 2),
         width               : tableRectProps.width  / 3,
         height              : tableRectProps.height / 2,
-        fill                : status? "rgb(81, 202, 81, .2)" : "#51CA47",
-        stroke              : status? "rgb(78, 89, 224, .2)" : "#4E59E0"
+        fill                : booked? "rgb(81, 202, 81, .2)" : "#51CA47",
+        stroke              : booked? "rgb(78, 89, 224, .2)" : "#4E59E0"
     }
 
     /** TEXTS */
@@ -55,7 +55,7 @@ const TypeTwoTable = (props) => {
         fontSize            : 10,
         x                   : selectRectProps.x + textXoffset,
         y                   : selectRectProps.y + textYoffset,
-        fill                : status? "rgb(255, 255, 255, .2)" : "#FFF",
+        fill                : booked? "rgb(255, 255, 255, .2)" : "#FFF",
         fontFamily          : "'Poppins', sans-serif"
     }
 
@@ -64,7 +64,7 @@ const TypeTwoTable = (props) => {
         fontSize            : 10,
         x                   : selectRectProps.x + textXoffset + 2,
         y                   : selectRectProps.y + 12 + textYoffset,
-        fill                : status? "rgb(255, 255, 255, .2)" : "#FFF",
+        fill                : booked? "rgb(255, 255, 255, .2)" : "#FFF",
         fontFamily          : "'Poppins', sans-serif"
     }
 

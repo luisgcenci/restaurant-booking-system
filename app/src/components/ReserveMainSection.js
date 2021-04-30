@@ -40,7 +40,8 @@ const ReserveMainSection = ({currentUser}) => {
     
             var starCountRef            = firebase.database().ref('/company/operation/');
             var data                    = undefined;
-            var options                 = [];
+            let startTimeOptions        = [];
+            let endTimeOptions          = [];
     
             starCountRef.on('value', (snapshot) => {
                 data = snapshot.val();
@@ -81,9 +82,15 @@ const ReserveMainSection = ({currentUser}) => {
                             let nextDay = "";
                             openDate.day() != oldOpenDateDay && (nextDay = " (" + "next day" + ") ");
     
-                            options.push({
-                                value: openDate.format('h:mm a') + nextDay,
-                                label: openDate.format('h:mm a') + nextDay
+                            startTimeOptions.push({
+                                value       : openDate.format('h:mm a') + nextDay,
+                                label       : openDate.format('h:mm a') + nextDay,
+                                isDisabled  : false
+                            })
+                            endTimeOptions.push({
+                                value       : openDate.format('h:mm a') + nextDay,
+                                label       : openDate.format('h:mm a') + nextDay,
+                                isDisabled  : false
                             })
                             
                             openDate.add('m', 30);
@@ -93,11 +100,13 @@ const ReserveMainSection = ({currentUser}) => {
     
                     return 0;
                 });
-    
-                setStartTime        (options[0]);
-                setEndTime          (options[2]);
-                setStartTimeOptions (options);
-                setEndTimeOptions   (options.slice(2));
+
+                startTimeOptions[startTimeOptions.length - 1].isDisabled = true;
+                startTimeOptions[startTimeOptions.length - 2].isDisabled = true;
+                setStartTime        (startTimeOptions[0]);
+                setEndTime          (endTimeOptions[2]);
+                setStartTimeOptions (startTimeOptions);
+                setEndTimeOptions   (endTimeOptions.slice(2));
             });
             
             return data;
@@ -134,6 +143,16 @@ const ReserveMainSection = ({currentUser}) => {
             setEndDate(ed);
         }
 
+        if (endTimeOptions){
+            
+            const filter = (option) =>{
+                option = getDate(option) > getDate(startTime).add(30, 'm')
+                ? option.isDisabled = false
+                : option.isDisabled = true
+            }
+            endTimeOptions.filter(filter);
+        }
+        
     }, [startTime, endTime])
 
     return (
@@ -154,17 +173,16 @@ const ReserveMainSection = ({currentUser}) => {
                 <div className="col-md-4 col-12">
                     <h4 id="titles">FROM TIME</h4>
                     <Select 
-                        options         = {startTimeOptions}
-                        value           = {startTime}
-                        onChange        = {(e) => handleSelectChange(e, "from")}
-                        name            = "color"
+                        options             = {startTimeOptions}
+                        value               = {startTime}
+                        onChange            = {(e) => handleSelectChange(e, "from")}
+                        name                = "color"
                     />
                 </div>
                 <div className="col-md-4 col-12">
                     <h4 id="titles">TO TIME</h4>
                     <Select 
                         options         = {endTimeOptions}
-                        defaultValue    = {endTime}
                         onChange        = {(e) => handleSelectChange(e, "to")}
                         name            = "color"
                     />
