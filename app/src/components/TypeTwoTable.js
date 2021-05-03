@@ -60,7 +60,7 @@ const TypeTwoTable = (props) => {
         y                   : tableRectProps.y - 20,
         width               : 30,
         height              : 30,
-        fill                : "#808080"
+        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
     } //top
     
     const seatCircleProps2 = {
@@ -68,7 +68,7 @@ const TypeTwoTable = (props) => {
         y                   : tableRectProps.y + 38,
         width               : 30,
         height              : 30,
-        fill                : "#808080"
+        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
     } //right
 
     const seatCircleProps3 = {
@@ -76,7 +76,7 @@ const TypeTwoTable = (props) => {
         y                   : tableRectProps.y + 38,
         width               : 30,
         height              : 30,
-        fill                : "#808080"
+        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
     }   //left
     
     const seatCircleProps4 = {
@@ -84,7 +84,7 @@ const TypeTwoTable = (props) => {
         y                   : tableRectProps.y + 90,
         width               : 30,
         height              : 30,
-        fill                : "#808080"
+        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
     } //bottom
 
     /** TEXTS */

@@ -59,7 +59,7 @@ const TypeThreeTable = (props) => {
         y                   : tableRectProps.y - 23,
         width               : 30,
         height              : 30,
-        fill                : "#808080"
+        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
     }
     
     const seatCircleProps2 = {
@@ -67,7 +67,7 @@ const TypeThreeTable = (props) => {
         y                   : tableRectProps.y + 143,
         width               : 30,
         height              : 30,
-        fill                : "#808080"
+        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
     }
     
 

@@ -59,7 +59,7 @@ const TypeOneTable = (props) => {
         y                   : tableRectProps.y - 18,
         width               : 30,
         height              : 30,
-        fill                : "#808080"
+        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
     } //topleft
     
     const seatCircleProps2 = {
@@ -67,7 +67,7 @@ const TypeOneTable = (props) => {
         y                   : tableRectProps.y - 18,
         width               : 30,
         height              : 30,
-        fill                : "#808080"
+        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
     } //topmiddle
 
     const seatCircleProps3 = {
@@ -75,7 +75,7 @@ const TypeOneTable = (props) => {
         y                   : tableRectProps.y - 18,
         width               : 30,
         height              : 30,
-        fill                : "#808080"
+        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
     } //topright
     
     const seatCircleProps4 = {
@@ -83,7 +83,7 @@ const TypeOneTable = (props) => {
         y                   : tableRectProps.y + 43,
         width               : 30,
         height              : 30,
-        fill                : "#808080"
+        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
     }   //left
     
     const seatCircleProps5 = {
@@ -91,7 +91,7 @@ const TypeOneTable = (props) => {
         y                   : tableRectProps.y + 43,
         width               : 30,
         height              : 30,
-        fill                : "#808080"
+        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
     } //right
 
     const seatCircleProps6 = {
@@ -99,7 +99,7 @@ const TypeOneTable = (props) => {
         y                   : tableRectProps.y + 113,
         width               : 30,
         height              : 30,
-        fill                : "#808080"
+        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
     } //botleft
     
     const seatCircleProps7 = {
@@ -107,7 +107,7 @@ const TypeOneTable = (props) => {
         y                   : tableRectProps.y + 113,
         width               : 30,
         height              : 30,
-        fill                : "#808080"
+        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
     } //botmiddle
 
     const seatCircleProps8 = {
@@ -115,7 +115,7 @@ const TypeOneTable = (props) => {
         y                   : tableRectProps.y + 113,
         width               : 30,
         height              : 30,
-        fill                : "#808080"
+        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
     } //botright
 
     
@@ -148,7 +148,7 @@ const TypeOneTable = (props) => {
         fontSize            : 40,
         x                   : selectRectProps.x + numberXoffset,
         y                   : selectRectProps.y + numberYoffset,
-        fill                : status? "rgb(255, 255, 255, .2)" : "#FFF",
+        fill                : booked? "rgb(255, 255, 255, .2)" : "#FFF",
         fontFamily          : "'Poppins', sans-serif"
     }
     
