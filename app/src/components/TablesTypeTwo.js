@@ -17,6 +17,8 @@ const TablesTypeTwo = (props) => {
         return (yDistance * index) + y + tableDistanceFromWalls
     }
 
+    console.log(ids);
+
     return (
         <>
             <TypeTwoTable 
@@ -38,7 +40,7 @@ const TablesTypeTwo = (props) => {
                 handlePopUp         = {props.handlePopUp} 
             />
             <TypeTwoTable 
-                id                  = {[2]} 
+                id                  = {ids[2]} 
                 x                   = {x} 
                 y                   = {getTableYDistance(2)} 
                 width               = {width} 
@@ -47,7 +49,7 @@ const TablesTypeTwo = (props) => {
                 handlePopUp         = {props.handlePopUp} 
             />
             <TypeTwoTable 
-                id                  = {[3]} 
+                id                  = {ids[3]} 
                 x                   = {x} 
                 y                   = {getTableYDistance(3)} 
                 width               = {width} 

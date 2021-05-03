@@ -20,10 +20,23 @@
 .PopUpInner{
     text-align          : center;
     box-shadow          : 5px 5px 4px rgba(0, 0, 0, 0.25);
+    width               : 50%;
 }
 
 .PopUpInner h4{
     margin              : 0px;
+}
+
+.PopUpInner .col-12:nth-child(2){
+    margin-top:20px;
+}
+
+.PopUpInner .confirmation-info{
+    text-align: left;
+}
+
+.confirmation-info span{
+    color: #FFC700;
 }
 
 .btn-success{

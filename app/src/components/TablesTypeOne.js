@@ -23,6 +23,8 @@ const TablesTypeOne = (props)               => {
         return (yDistance * index) + yStart + tableDistanceFromWalls
     }
     
+    console.log(ids);
+    
     return (
         <>
             <Line

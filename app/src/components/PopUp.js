@@ -1,4 +1,5 @@
-import React from 'react'
+import React    from 'react'
+import moment   from 'moment'
 import '../css/PopUp.css'
 
 const PopUp = (props) => {
@@ -21,10 +22,23 @@ const PopUp = (props) => {
                 <div className="col-12 text">
                     <h4>CONFIRM TABLE RESERVATION?</h4>
                 </div>
-                <div className="col-5 btn btn btn-danger"       onClick = {() => handleClick(true)}>
+                    <div className="col-12 text confirmation-info">
+                        FROM: <span>{moment(props.from).format('MMMM Do YYYY, h:mm:ss a')}</span>
+                    </div>
+                    <div className="col-12 confirmation-info">
+                        TO: <span>{moment(props.to).format('MMMM Do YYYY, h:mm:ss a')}</span>
+                    </div>
+                    <div className="col-12 confirmation-info">
+                        FIRST NAME : <span>{props.first_name}</span>
+                    </div>
+                    <div className="col-12 confirmation-info">
+                        LAST NAME : <span>{props.last_name}</span>
+                    </div>
+
+                <div className="col-5 btn btn-success"       onClick = {() => handleClick(true)}>
                     <h4>YES</h4>
                 </div>
-                <div className="col-5 offset-2 btn btn-success" onClick = {() => handleClick(false)}>
+                <div className="col-5 offset-2 btn btn-danger " onClick = {() => handleClick(false)}>
                     <h4>NO</h4>
                 </div>
             </div>

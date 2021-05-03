@@ -106,8 +106,10 @@ const TableView = (props) => {
         let tmpArray = Array.from(map).slice(start, end);
 
         return new Map(tmpArray);
-
     }
+
+    // console.log(startDate.format());
+    // console.log(endDate.format());
 
     return (
 
@@ -140,8 +142,8 @@ const TableView = (props) => {
                     </div>
                     {(startDate) &&
                         <div className="col-md-3 col-6 info">   
-                            <p>{startDate.format('hh:mm a')}</p>
-                            <p>{startDate.format('L')}</p>    
+                            <p>{startDate.format('hh:mm a')} - {endDate.format('hh:mm a')} </p>
+                            <p>{startDate.format('L')} - {endDate.format('L')}</p>    
                         </div>
                     }
                 </div>
@@ -202,6 +204,10 @@ const TableView = (props) => {
                     <PopUp 
                         handlePopUp         = {handlePopUp}
                         handleReservation   = {handleReservation}
+                        from                = {startDate.format()}
+                        to                  = {endDate.format()}
+                        first_name          = {customerFirstName}
+                        last_name           = {customerLastName}
                     />
                 </>
                 :

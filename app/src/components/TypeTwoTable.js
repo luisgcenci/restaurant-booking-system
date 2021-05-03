@@ -13,15 +13,17 @@ const TypeTwoTable = (props) => {
     const handleHovering    = props.handleHovering
 
     const handleClick = (e) =>{
-        handlePopUp(true, id);
+        console.log(id);
+        // console.log(booked);
+        !booked && handlePopUp(true, id);
     }
 
     const handleHover = (e) =>{
-        if(e.type == 'mouseenter'){
-            handleHovering(true);
+        if(e.type           == 'mouseenter'){
+            booked? handleHovering('not-allowed') : handleHovering('pointer')
         }
-        else if(e.type == 'mouseleave'){
-            handleHovering(false);
+        else if(e.type      == 'mouseleave'){
+            handleHovering('default');
         }
     }
 
@@ -33,7 +35,12 @@ const TypeTwoTable = (props) => {
         y                   : y,
         width               : width,
         height              : height,
-        fill                : booked? "rgb(202, 71, 81, .2)" : "#CA4751"
+        fill                : booked? "rgb(202, 71, 81, .2)" : "#CA4751",
+        shadowColor         : 'black',
+        shadowOffsetX       : '2',
+        shadowOffsetY       : '2',
+        shadowOpacity       : 0.5,
+        shadowBlur          : '4'
     }
 
     //select table rect

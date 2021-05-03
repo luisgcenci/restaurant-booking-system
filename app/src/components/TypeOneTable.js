@@ -15,6 +15,7 @@ const TypeOneTable = (props) => {
 
 
     const handleClick = (e) =>{
+        console.log(id);
         !booked && handlePopUp(true, id);
     }
 
@@ -35,7 +36,12 @@ const TypeOneTable = (props) => {
         y                   : y,
         width               : width,
         height              : height,
-        fill                : booked? "rgb(202, 71, 81, .2)" : "#CA4751"
+        fill                : booked? "rgb(202, 71, 81, .2)" : "#CA4751",
+        shadowColor         : 'black',
+        shadowOffsetX       : '2',
+        shadowOffsetY       : '2',
+        shadowOpacity       : 0.5,
+        shadowBlur          : '4'
     }
 
     //select table rect

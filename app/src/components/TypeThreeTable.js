@@ -14,15 +14,16 @@ const TypeThreeTable = (props) => {
 
 
     const handleClick = (e) =>{
-        props.handlePopUp(true, id);
+        console.log(id);
+        !booked && handlePopUp(true, id);
     }
 
     const handleHover = (e) =>{
-        if(e.type == 'mouseenter'){
-            props.handleHovering(true);
+        if(e.type           == 'mouseenter'){
+            booked? handleHovering('not-allowed') : handleHovering('pointer')
         }
-        else if(e.type == 'mouseleave'){
-            props.handleHovering(false);
+        else if(e.type      == 'mouseleave'){
+            handleHovering('default');
         }
     }
 
@@ -30,11 +31,16 @@ const TypeThreeTable = (props) => {
 
     //main table rect
     const tableRectProps = {
-        x                   : props.x,
-        y                   : props.y,
-        width               : props.width,
-        height              : props.height,
-        fill                : booked? "rgb(202, 71, 81, .2)" : "#CA4751"
+        x                   : x,
+        y                   : y,
+        width               : width,
+        height              : height,
+        fill                : booked? "rgb(202, 71, 81, .2)" : "#CA4751",
+        shadowColor         : 'black',
+        shadowOffsetX       : '2',
+        shadowOffsetY       : '2',
+        shadowOpacity       : 0.5,
+        shadowBlur          : '4'
     }
 
     //select table rect

@@ -33,7 +33,7 @@ const ReserveUserSection = ({currentUser, logOutHandler}) => {
                 <div className="col-12">
                     <button id="logOutButton" onClick={buttonHandler}>logout</button>
                 </div>
-                <div className="col-3 UserSession">
+                <div className="col-4 UserSession">
                     <p id="SessionText">CURRENT SESSION</p>
                     <p>USER: {currentUser}</p>
                     <p>DATE: {date} </p>
