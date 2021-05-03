@@ -48,6 +48,69 @@ const TypeOneTable = (props) => {
         stroke              : status? "rgb(78, 89, 224, .2)" : "#4E59E0"
     }
 
+    const seatCircleProps = {
+        x                   : tableRectProps.x + 20,
+        y                   : tableRectProps.y - 18,
+        width               : 30,
+        height              : 30,
+        fill                : "#808080"
+    } //topleft
+    
+    const seatCircleProps2 = {
+        x                   : tableRectProps.x + 80,
+        y                   : tableRectProps.y - 18,
+        width               : 30,
+        height              : 30,
+        fill                : "#808080"
+    } //topmiddle
+
+    const seatCircleProps3 = {
+        x                   : tableRectProps.x + 140,
+        y                   : tableRectProps.y - 18,
+        width               : 30,
+        height              : 30,
+        fill                : "#808080"
+    } //topright
+    
+    const seatCircleProps4 = {
+        x                   : tableRectProps.x - 20 ,
+        y                   : tableRectProps.y + 43,
+        width               : 30,
+        height              : 30,
+        fill                : "#808080"
+    }   //left
+    
+    const seatCircleProps5 = {
+        x                   : tableRectProps.x + 180,
+        y                   : tableRectProps.y + 43,
+        width               : 30,
+        height              : 30,
+        fill                : "#808080"
+    } //right
+
+    const seatCircleProps6 = {
+        x                   : tableRectProps.x + 20,
+        y                   : tableRectProps.y + 113,
+        width               : 30,
+        height              : 30,
+        fill                : "#808080"
+    } //botleft
+    
+    const seatCircleProps7 = {
+        x                   : tableRectProps.x + 80,
+        y                   : tableRectProps.y + 113,
+        width               : 30,
+        height              : 30,
+        fill                : "#808080"
+    } //botmiddle
+
+    const seatCircleProps8 = {
+        x                   : tableRectProps.x + 140,
+        y                   : tableRectProps.y + 113,
+        width               : 30,
+        height              : 30,
+        fill                : "#808080"
+    } //botright
 
     
     /** TEXTS */
@@ -96,7 +159,30 @@ const TypeOneTable = (props) => {
                 onMouseEnter    = {handleHover} 
                 onMouseLeave    = {handleHover}
             />
-          
+            <Circle
+                {...seatCircleProps}
+            />
+            <Circle
+                {...seatCircleProps2}
+            />
+            <Circle
+                {...seatCircleProps3}
+            />
+            <Circle
+                {...seatCircleProps4}
+            />
+            <Circle
+                {...seatCircleProps5}
+            />
+            <Circle
+                {...seatCircleProps6}
+            />
+            <Circle
+                {...seatCircleProps7}
+            />
+            <Circle
+                {...seatCircleProps8}
+            />
             <Text 
                 {...textSelectProps}  
                 onClick         = {handleClick} 

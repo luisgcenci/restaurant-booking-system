@@ -45,6 +45,40 @@ const TypeTwoTable = (props) => {
         stroke              : "#4E59E0",
     }
 
+    //table seats circle (top and bottom)
+
+    const seatCircleProps = {
+        x                   : tableRectProps.x + 70,
+        y                   : tableRectProps.y - 20,
+        width               : 30,
+        height              : 30,
+        fill                : "#808080"
+    } //top
+    
+    const seatCircleProps2 = {
+        x                   : tableRectProps.x + 160,
+        y                   : tableRectProps.y + 38,
+        width               : 30,
+        height              : 30,
+        fill                : "#808080"
+    } //right
+
+    const seatCircleProps3 = {
+        x                   : tableRectProps.x - 20 ,
+        y                   : tableRectProps.y + 38,
+        width               : 30,
+        height              : 30,
+        fill                : "#808080"
+    }   //left
+    
+    const seatCircleProps4 = {
+        x                   : tableRectProps.x + 70,
+        y                   : tableRectProps.y + 90,
+        width               : 30,
+        height              : 30,
+        fill                : "#808080"
+    } //bottom
+
     /** TEXTS */
     const textXoffset = 7;
     const textYoffset = 8;
@@ -90,7 +124,18 @@ const TypeTwoTable = (props) => {
                 onMouseEnter    = {handleHover} 
                 onMouseLeave    = {handleHover}
             />
-            
+            <Circle
+                {...seatCircleProps}
+            />
+            <Circle
+                {...seatCircleProps2}
+            />
+            <Circle
+                {...seatCircleProps3}
+            />
+            <Circle
+                {...seatCircleProps4}
+            />
             <Text 
                 {...textSelectProps}  
                 onClick         = {handleClick} 

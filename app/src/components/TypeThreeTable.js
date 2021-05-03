@@ -45,24 +45,24 @@ const TypeThreeTable = (props) => {
         stroke              : "#4E59E0"
     }
 
-    /*table seats circle (top and bottom)
+    //table seats circle (top and bottom)
 
      const seatCircleProps = {
-        x                   : tableRectProps.x + 40,
-        y                   : tableRectProps.y - 28,
-        width               : width / 2.5,
-        height              : height,
+        x                   : tableRectProps.x + 42,
+        y                   : tableRectProps.y - 23,
+        width               : 30,
+        height              : 30,
         fill                : "#808080"
     }
     
     const seatCircleProps2 = {
-        x                   : tableRectProps.x + 40,
-        y                   : tableRectProps.y + 148,
-        width               : width / 2.5,
-        height              : height,
+        x                   : tableRectProps.x + 42,
+        y                   : tableRectProps.y + 143,
+        width               : 30,
+        height              : 30,
         fill                : "#808080"
     }
-    */
+    
 
     /** TEXTS */
     const textXoffset = 22;
@@ -107,6 +107,12 @@ const TypeThreeTable = (props) => {
                 onClick         = {handleClick} 
                 onMouseEnter    = {handleHover} 
                 onMouseLeave    = {handleHover}
+            />
+            <Circle
+                {...seatCircleProps}
+            />
+            <Circle
+                {...seatCircleProps2}
             />
             <Text 
                 {...textSelectProps}  
