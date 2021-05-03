@@ -47,10 +47,14 @@ const TypeOneTable = (props) => {
         fill                : status? "rgb(81, 202, 81, .2)" : "#51CA47",
         stroke              : status? "rgb(78, 89, 224, .2)" : "#4E59E0"
     }
+
+
     
     /** TEXTS */
     const textXoffset = 10;
     const textYoffset = 5;
+    const numberXoffset = -40;
+    const numberYoffset = -34;
 
     const textSelectProps = {
         text                : "SELECT",
@@ -69,7 +73,18 @@ const TypeOneTable = (props) => {
         fill                : status? "rgb(255, 255, 255, .2)" : "#FFF",
         fontFamily          : "'Poppins', sans-serif"
     }
+
+    const textSeatsProps = {
+        text                : "8",
+        fontSize            : 40,
+        x                   : selectRectProps.x + numberXoffset,
+        y                   : selectRectProps.y + numberYoffset,
+        fill                : status? "rgb(255, 255, 255, .2)" : "#FFF",
+        fontFamily          : "'Poppins', sans-serif"
+    }
     
+
+
     return (
         <>  
             <Rect 
@@ -81,6 +96,7 @@ const TypeOneTable = (props) => {
                 onMouseEnter    = {handleHover} 
                 onMouseLeave    = {handleHover}
             />
+          
             <Text 
                 {...textSelectProps}  
                 onClick         = {handleClick} 
@@ -92,6 +108,9 @@ const TypeOneTable = (props) => {
                 onClick         = {handleClick} 
                 onMouseEnter    = {handleHover} 
                 onMouseLeave    = {handleHover}
+            />
+            <Text
+                {...textSeatsProps}
             />
         </>
     );

@@ -142,7 +142,7 @@ const TableView = (props) => {
                     <div className="col-12 canvas-area">
                         <Stage width={1520} height={800}>
                             <Layer>
-                                <TablesTypeOne   
+                                <TablesTypeOne
                                     ids             = {sliceMap(tablesIds, 0, 4)} 
                                     handleHovering  = {handleHovering}
                                     handlePopUp     = {handlePopUp}
@@ -150,7 +150,7 @@ const TableView = (props) => {
                                     startDate       = {startDate}
                                     endDate         = {endDate}
                                 />
-                                <TablesTypeTwo   
+                                <TablesTypeTwo
                                     ids             = {sliceMap(tablesIds, 4, 8)} 
                                     handleHovering  = {handleHovering} 
                                     x               = {450}
@@ -158,7 +158,7 @@ const TableView = (props) => {
                                     startDate       = {startDate}
                                     endDate         = {endDate}
                                 />
-                                <TablesTypeThree 
+                                <TablesTypeThree
                                     ids             = {sliceMap(tablesIds, 8, 11)} 
                                     handleHovering  = {handleHovering} 
                                     x               = {740}
@@ -166,7 +166,7 @@ const TableView = (props) => {
                                     startDate       = {startDate}
                                     endDate         = {endDate}
                                 />
-                                <TablesTypeTwo   
+                                <TablesTypeTwo
                                     ids             = {sliceMap(tablesIds, 11, 15)} 
                                     handleHovering  = {handleHovering} 
                                     x               = {950}
@@ -174,7 +174,7 @@ const TableView = (props) => {
                                     startDate       = {startDate}
                                     endDate         = {endDate}
                                 />
-                                <TablesTypeOne   
+                                <TablesTypeOne
                                     ids             = {sliceMap(tablesIds, 15, 19)} 
                                     handleHovering  = {handleHovering}
                                     x               = {1220 }

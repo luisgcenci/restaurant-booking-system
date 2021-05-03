@@ -48,6 +48,8 @@ const TypeTwoTable = (props) => {
     /** TEXTS */
     const textXoffset = 7;
     const textYoffset = 8;
+    const numberXoffset = -38;
+    const numberYoffset = -15;
 
     const textSelectProps = {
         text                : "SELECT",
@@ -67,6 +69,15 @@ const TypeTwoTable = (props) => {
         fontFamily          : "'Poppins', sans-serif"
     }
 
+    const textSeatsProps = {
+        text                : "4",
+        fontSize            : 40,
+        x                   : selectRectProps.x + numberXoffset,
+        y                   : selectRectProps.y + numberYoffset,
+        fill                : "#FFF",
+        fontFamily          : "'Poppins', sans-serif"
+    }
+
 
     return (
         <>
@@ -79,6 +90,7 @@ const TypeTwoTable = (props) => {
                 onMouseEnter    = {handleHover} 
                 onMouseLeave    = {handleHover}
             />
+            
             <Text 
                 {...textSelectProps}  
                 onClick         = {handleClick} 
@@ -90,6 +102,9 @@ const TypeTwoTable = (props) => {
                 onClick         = {handleClick} 
                 onMouseEnter    = {handleHover} 
                 onMouseLeave    = {handleHover}
+            />
+            <Text
+                {...textSeatsProps}
             />
         </>
     );

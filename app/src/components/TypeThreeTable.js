@@ -11,7 +11,6 @@ const TypeThreeTable = (props) => {
     const handlePopUp       = props.handlePopUp;
     const handleHovering    = props.handleHovering
 
-
     const handleClick = (e) =>{
         props.handlePopUp(true, id);
     }
@@ -46,9 +45,30 @@ const TypeThreeTable = (props) => {
         stroke              : "#4E59E0"
     }
 
+    /*table seats circle (top and bottom)
+
+     const seatCircleProps = {
+        x                   : tableRectProps.x + 40,
+        y                   : tableRectProps.y - 28,
+        width               : width / 2.5,
+        height              : height,
+        fill                : "#808080"
+    }
+    
+    const seatCircleProps2 = {
+        x                   : tableRectProps.x + 40,
+        y                   : tableRectProps.y + 148,
+        width               : width / 2.5,
+        height              : height,
+        fill                : "#808080"
+    }
+    */
+
     /** TEXTS */
     const textXoffset = 22;
     const textYoffset = 5;
+    const numberXoffset = 29;
+    const numberYoffset = -57;
 
     const textSelectProps = {
         text                : "SELECT",
@@ -67,6 +87,15 @@ const TypeThreeTable = (props) => {
         fill                : "#FFF",
         fontFamily          : "'Poppins', sans-serif"
     }       
+
+    const textSeatsProps = {
+        text                : "2",
+        fontSize            : 40,
+        x                   : selectRectProps.x + numberXoffset,
+        y                   : selectRectProps.y + numberYoffset,
+        fill                : "#FFF",
+        fontFamily          : "'Poppins', sans-serif"
+    }
 
     return (
         <>
@@ -90,6 +119,9 @@ const TypeThreeTable = (props) => {
                 onClick         = {handleClick} 
                 onMouseEnter    = {handleHover} 
                 onMouseLeave    = {handleHover}
+            />
+            <Text
+                {...textSeatsProps}
             />
         </>
     );
