@@ -16,8 +16,6 @@ const TablesTypeThree = (props) => {
     const getTableYDistance = (index) =>{
         return (yDistance * index) + y + tableDistanceFromWalls;
     }
-
-    console.log(ids);
     
     return (
         <>
