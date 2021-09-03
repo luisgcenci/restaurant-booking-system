@@ -1,0 +1,26 @@
+.CreateTask{
+    margin-top:50px;
+    text-align: center;
+}
+
+.CreateTask input{
+
+    text-align:center;
+}
+
+.CreateTaskInputDiv{
+    width:100%;
+}
+
+.CreateTaskInputDiv input{
+    position:relative;
+    width:80%;
+    float:right;
+}
+
+.CreateTaskInputDiv button{
+    position:relative;
+    width:20%;
+    float:left;
+    font-size:auto;
+}
