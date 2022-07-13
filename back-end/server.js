@@ -10,14 +10,15 @@ const jwt = require('jsonwebtoken');
 
 //app
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 5000;
 const bodyParser = require('body-parser');
 const auth = require('./middleware/auth')
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
-app.use(bodyParser());
-// app.use(express.json);
+app.use(cors());
+app.use(express.json());
 
 app.get('/', (req, res) =>{
 
@@ -26,8 +27,34 @@ app.get('/', (req, res) =>{
 
 app.get('/checkUserAuthentication', auth, (req, res) =>{
 
-    res.json({auth:true}); 
+    res.json({auth:true});
 });
+
+app.post('/registeracc', async (req, res) => {
+
+    const {username, password} = req.body;
+    const passwordEncrypted = await bcrypt.hash(password, 10);
+
+    const user = new UserModel({
+        username: username,
+        password: passwordEncrypted
+    })
+
+    const token = jwt.sign(
+        {user_id: user._id, username},
+        process.env.TOKEN_KEY,
+        {
+            expiresIn: '2h',
+        }
+    )
+
+    user.token = token;
+
+    user.save(err => {
+        if (err) return res.status(500).send(err);
+        return res.status(200).send(user);
+    })
+})
 
 app.post('/login', (req, res) =>{
     
@@ -52,7 +79,7 @@ app.post('/login', (req, res) =>{
                         );  
                         
                         user.token = token;
-                        res.json({auth: true});
+                        res.json({auth: true, token: token});
                     }
                     else{
                         res.json({auth: false});

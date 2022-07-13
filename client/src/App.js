@@ -14,7 +14,7 @@ const App = () => {
 
   useEffect(() =>{
 
-    axios.get('/checkUserAuthentication', {
+    axios.get('http://127.0.0.1:5000/checkUserAuthentication', {
       headers: {
         'x-access-token': localStorage.getItem('token')
       }
@@ -26,7 +26,7 @@ const App = () => {
     });
 
 }, []);
-  
+
   return (
     loginStatus?
     <div className="container">

@@ -10,20 +10,19 @@ const Login = ({loginHandler}) => {
     const handleSubmit = (e) =>{
 
         e.preventDefault();
-        axios.post('/login', {
+        axios.post('http://127.0.0.1:5000/login', {
             username: username,
             password: password
         }).then ((response) =>{
 
             if (response.data.auth){
-                console.log(response.data);
                 setUsername("");
                 setPassword("");
                 localStorage.setItem('token', response.data.token);
                 loginHandler(true);
             }
             else{
-                console.log(response.data);
+                loginHandler(false);
             }
         })
     }
