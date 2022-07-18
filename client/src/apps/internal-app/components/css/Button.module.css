@@ -1,0 +1,17 @@
+.Button{
+    justify-content: flex-end;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 1vw 0;
+}
+
+.Button input{
+    padding: 1vh 4vw;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #E0577D;
+    color: #FFFFFF;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+}

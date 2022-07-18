@@ -1,0 +1,13 @@
+.Form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    padding: 2vw;
+}
+
+.FormSection{
+    flex: 1;
+    width: 100%;
+}

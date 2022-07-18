@@ -1,0 +1,19 @@
+.Settings{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.Message{
+    display:flex;
+    min-height: 8vh;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Message p{
+    color:purple;
+    margin: 0;
+}

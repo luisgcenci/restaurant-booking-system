@@ -1,0 +1,15 @@
+.InternalApp{
+    display: flex;
+    flex: 1;
+}
+
+.NavBar{
+    display: flex;
+    flex: 1;
+}
+
+.View{
+    display: flex;
+    flex: 5;
+    background-color: #EEEEEE;
+}

@@ -1,0 +1,17 @@
+.AlertMessage{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.AlertMessage p{
+    margin: 0;
+}
+
+#positive{
+    color: green;
+}
+
+#negative{
+    color: red;
+}

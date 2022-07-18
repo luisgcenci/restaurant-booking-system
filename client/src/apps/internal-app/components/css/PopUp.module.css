@@ -1,0 +1,48 @@
+.PopUp{
+    position            : fixed;
+    top                 : 0;
+    width               : 100%;
+    height              : 100%;
+    padding             : 0;
+    background-color    : rgb(0, 0, 0, 0.8);
+
+    display             : flex;
+    justify-content     : center;
+    align-items         : center;
+}
+
+.PopUpInner{
+    background-color    :#4E59E0;
+    padding             : 50px;
+    color               : #FFF;
+}
+
+.PopUpInner{
+    text-align          : center;
+    box-shadow          : 5px 5px 4px rgba(0, 0, 0, 0.25);
+    width               : 50%;
+}
+
+.PopUpInner h4{
+    margin              : 0px;
+}
+
+.PopUpInner .col-12:nth-child(2){
+    margin-top:20px;
+}
+
+.PopUpInner .ConfirmationInfo{
+    text-align: left;
+}
+
+.ConfirmationInfo span{
+    color: #FFC700;
+}
+
+.btn-success{
+    margin-top         : 50px;
+}
+
+.btn-danger{
+    margin-top         : 50px;
+}

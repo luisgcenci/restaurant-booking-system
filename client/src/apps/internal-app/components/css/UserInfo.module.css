@@ -1,0 +1,23 @@
+.Avatar{
+    flex: 1;
+    display: flex;
+    margin: auto;
+}
+
+.Info{
+    flex: 3;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    padding: 1vw;
+}
+
+.Info p{
+    font-size: 14px;
+    margin: 0;
+}
+
+#email{
+    font-size: 12px;
+    color: #808080;
+}

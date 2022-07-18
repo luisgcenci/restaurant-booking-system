@@ -1,7 +1,10 @@
 import './css/App.css';
-import ToDoList from './ToDoList';
-import Login from './Login';
+import InternalApp from './apps/internal-app/InternalApp';
+import AuthApp from './apps/auth-app/AuthApp';
 import React, {useState, useEffect} from 'react';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistor, store } from './store/store'
 import axios from 'axios';
 
 const App = () => {
@@ -13,8 +16,7 @@ const App = () => {
   } 
 
   useEffect(() =>{
-
-    axios.get('http://127.0.0.1:5000/checkUserAuthentication', {
+    axios.get('http://127.0.0.1:5000/api/v1/user/auth', {
       headers: {
         'x-access-token': localStorage.getItem('token')
       }
@@ -28,16 +30,18 @@ const App = () => {
 }, []);
 
   return (
-    loginStatus?
-    <div className="container">
-      <div className="row">
-        <div className="col-6 offset-3">
-        <ToDoList/>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <div className='App'>
+          {loginStatus ?
+            <InternalApp/>
+            :
+            <AuthApp loginHandler={loginHandler}/>
+          }
         </div>
-      </div>
-    </div>
-    :
-    <Login loginHandler = {loginHandler}/>
+      </PersistGate>
+    </Provider>
+    
   );
 }
 

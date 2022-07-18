@@ -1,0 +1,22 @@
+.Item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2vh;    
+    text-decoration: none;
+    color: #9E9E9E;
+}
+
+.Item:hover{
+    color: #FFFFFF;
+}
+
+.Item p{
+    flex: 3;
+    margin: 0;
+}
+
+.Icon{
+    flex: 1;
+}

@@ -1,0 +1,90 @@
+.TablesPage{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: scroll;
+}
+
+.Header{
+    flex: 1;
+    display: flex;
+    background-color : #4E59E0;
+    width: 40vw;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 3vh;
+}
+
+.Exit{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-right: 2px solid;
+    border-color: #FFFFFF;
+}
+
+.Exit a{
+    color: #FFC700;
+    text-decoration: none;
+}
+
+.Info{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Info p {
+    margin: 0;
+    color: #FFFFFF;
+}
+
+.Tables{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.TablesPage .info{
+    text-align          : center;
+    background-color    : #4E59E0;
+    border              : 1px solid #FFF;
+}
+
+.TablesPage .info p{
+    margin              : 2px 0;
+    color               : #FFF;
+}
+
+.TablesPage .exit{
+    top                 : 0;
+    text-align          : center;
+    background-color    : #4E59E0;
+    border              : 1px solid white;
+    padding-top         : 15px;
+}
+
+.TablesPage .exit a{
+    color               : #FFC700; 
+}
+
+.canvas-area .row{
+    position            : relative;
+}
+
+.canvas-area{
+    padding             : 0px;
+}
+
+.canvas-area .col-3{
+    padding             : 0px;
+    text-align          : right;
+}
+
+.canvas-area .col-2{
+    padding             : 0px;
+}

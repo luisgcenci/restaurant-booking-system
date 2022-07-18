@@ -1,0 +1,14 @@
+.Image{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.Name{
+    flex: 3;
+}
+
+.Name p{
+    margin: 0;
+    text-align: left;
+}
