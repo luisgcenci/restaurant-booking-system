@@ -5,12 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "msedge",
+            "type": "pwa-node",
             "request": "launch",
-            "name": "Launch Edge against localhost",
-            "runtimeExecutable": "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
-            "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}"
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/client/server.js"
         }
     ]
 }

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styles from '../css/Login.module.css'
 import { useAppDispatch } from '../../../hooks/hooks';
-import { updateUsername } from '../../../store/features/userSlice';
+import { updateAuth, updateToken, updateUsername } from '../../../store/features/userSlice';
 
-const Login = ({loginHandler}) => {
+const Login = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -23,15 +23,11 @@ const Login = ({loginHandler}) => {
 
             if (response.data.jwt_token){
                 dispatch(updateUsername(username));
+                dispatch(updateToken(response.data.jwt_token));
+                dispatch(updateAuth(true));
                 setUsername('');
                 setPassword('');
                 setErrorMessage('');
-                localStorage.setItem('token', response.data.jwt_token);
-                loginHandler(true);
-                console.log('signed in');
-            }
-            else{
-                loginHandler(false);
             }
         }).catch((err) => {
             const message = err.response.data
@@ -64,6 +60,7 @@ const Login = ({loginHandler}) => {
                 </div>
                 <div className={styles.Submit}>
                     <input
+                        value='Log In'
                         type='submit'
                         onClick={submitForm}>
                     </input>

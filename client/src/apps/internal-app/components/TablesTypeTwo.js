@@ -4,8 +4,8 @@ import TypeTwoTable from './TypeTwoTable'
 const TablesTypeTwo = (props) => {
 
     const x                         = props.x;
-    const y                         = 52.5;
-    const yDistance                 = 175;
+    const y                         = 50;
+    const yDistance                 = 200;
     const tableDistanceFromWalls    = 40;
     const width                     = 140;
     const height                    = 70;

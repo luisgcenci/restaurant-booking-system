@@ -4,8 +4,8 @@ import TypeThreeTable from './TypeThreeTable'
 const TablesTypeThree = (props) => {
     
     const x                      = props.x;
-    const y                      = 20;
-    const yDistance              = 250;
+    const y                      = 50;
+    const yDistance              = 275;
     const tableDistanceFromWalls = 40;
     const width                  = 80;
     const height                 = 120;

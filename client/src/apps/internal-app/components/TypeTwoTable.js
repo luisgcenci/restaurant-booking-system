@@ -17,10 +17,10 @@ const TypeTwoTable = (props) => {
     }
 
     const handleHover = (e) =>{
-        if(e.type           === 'mouseenter'){
+        if(e.type === 'mouseenter'){
             booked? handleHovering('not-allowed') : handleHovering('pointer')
         }
-        else if(e.type      === 'mouseleave'){
+        else if(e.type === 'mouseleave'){
             handleHovering('default');
         }
     }
@@ -33,12 +33,12 @@ const TypeTwoTable = (props) => {
         y                   : y,
         width               : width,
         height              : height,
-        fill                : booked? "rgb(202, 71, 81, .2)" : "#CA4751",
+        fill                : booked? "rgb(164, 54, 4, .2)" : "#a43604",
         shadowColor         : 'black',
-        shadowOffsetX       : '2',
-        shadowOffsetY       : '2',
+        shadowOffsetX       : 2,
+        shadowOffsetY       : 2,
         shadowOpacity       : 0.5,
-        shadowBlur          : '4'
+        shadowBlur          : 4
     }
 
     //select table rect
@@ -52,13 +52,12 @@ const TypeTwoTable = (props) => {
     }
 
     //table seats circle (top and bottom)
-
     const seatCircleProps = {
         x                   : tableRectProps.x + 70,
         y                   : tableRectProps.y - 20,
         width               : 30,
         height              : 30,
-        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
+        fill                : booked? "rgb(22, 31, 33, 0.2)" : "rgb(22, 31, 33, 0.5)",
     } //top
     
     const seatCircleProps2 = {
@@ -66,7 +65,7 @@ const TypeTwoTable = (props) => {
         y                   : tableRectProps.y + 38,
         width               : 30,
         height              : 30,
-        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
+        fill                : booked? "rgb(22, 31, 33, 0.2)" : "rgb(22, 31, 33, 0.5)",
     } //right
 
     const seatCircleProps3 = {
@@ -74,7 +73,7 @@ const TypeTwoTable = (props) => {
         y                   : tableRectProps.y + 38,
         width               : 30,
         height              : 30,
-        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
+        fill                : booked? "rgb(22, 31, 33, 0.2)" : "rgb(22, 31, 33, 0.5)",
     }   //left
     
     const seatCircleProps4 = {
@@ -82,32 +81,12 @@ const TypeTwoTable = (props) => {
         y                   : tableRectProps.y + 90,
         width               : 30,
         height              : 30,
-        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
+        fill                : booked? "rgb(22, 31, 33, 0.2)" : "rgb(22, 31, 33, 0.5)",
     } //bottom
 
     /** TEXTS */
-    const textXoffset = 7;
-    const textYoffset = 8;
-    const numberXoffset = -38;
+    const numberXoffset = -35;
     const numberYoffset = -15;
-
-    const textSelectProps = {
-        text                : "SELECT",
-        fontSize            : 10,
-        x                   : selectRectProps.x + textXoffset,
-        y                   : selectRectProps.y + textYoffset,
-        fill                : booked? "rgb(255, 255, 255, .2)" : "#FFF",
-        fontFamily          : "'Poppins', sans-serif"
-    }
-
-    const textTableProps = {
-        text                : "TABLE",
-        fontSize            : 10,
-        x                   : selectRectProps.x + textXoffset + 2,
-        y                   : selectRectProps.y + 12 + textYoffset,
-        fill                : booked? "rgb(255, 255, 255, .2)" : "#FFF",
-        fontFamily          : "'Poppins', sans-serif"
-    }
 
     const textSeatsProps = {
         text                : "4",
@@ -123,9 +102,6 @@ const TypeTwoTable = (props) => {
         <>
             <Rect 
                 {...tableRectProps}
-            />
-            <Rect
-                {...selectRectProps}
                 onClick         = {handleClick} 
                 onMouseEnter    = {handleHover} 
                 onMouseLeave    = {handleHover}
@@ -142,20 +118,11 @@ const TypeTwoTable = (props) => {
             <Circle
                 {...seatCircleProps4}
             />
-            <Text 
-                {...textSelectProps}  
-                onClick         = {handleClick} 
-                onMouseEnter    = {handleHover} 
-                onMouseLeave    = {handleHover}
-            />
-            <Text 
-                {...textTableProps}   
-                onClick         = {handleClick} 
-                onMouseEnter    = {handleHover} 
-                onMouseLeave    = {handleHover}
-            />
             <Text
                 {...textSeatsProps}
+                onClick         = {handleClick} 
+                onMouseEnter    = {handleHover} 
+                onMouseLeave    = {handleHover}
             />
         </>
     );

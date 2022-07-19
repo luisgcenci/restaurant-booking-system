@@ -18,6 +18,14 @@
     padding: 1vh;
 }
 
+.Submit input{
+    background-color: #eb8b35;
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+    padding: 1vh;
+}
+
 .ErrorMessage{
     min-height: 8vh;
     display: flex;

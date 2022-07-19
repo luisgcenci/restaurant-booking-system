@@ -16,7 +16,7 @@ const InternalApp = () => {
       </div>
       <div className={styles.View}>
         <Routes>
-          <Route path='*' element={<Navigate replace to='/booking'/>}/>
+          <Route path='*' element={<Navigate replace to='/home'/>}/>
           <Route path='/home' element={<Home/>}/>
           <Route path='/settings' element={<Settings/>}/>
           <Route path='/booking'>

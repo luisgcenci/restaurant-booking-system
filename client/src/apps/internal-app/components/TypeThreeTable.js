@@ -13,7 +13,6 @@ const TypeThreeTable = (props) => {
     const handleHovering    = props.handleHovering
 
     const handleClick = (e) =>{
-        console.log(id);
         !booked && handlePopUp(true, id);
     }
 
@@ -34,12 +33,12 @@ const TypeThreeTable = (props) => {
         y                   : y,
         width               : width,
         height              : height,
-        fill                : booked? "rgb(202, 71, 81, .2)" : "#CA4751",
+        fill                : booked? "rgb(164, 54, 4, .2)" : "#a43604",
         shadowColor         : 'black',
-        shadowOffsetX       : '2',
-        shadowOffsetY       : '2',
+        shadowOffsetX       : 2,
+        shadowOffsetY       : 2,
         shadowOpacity       : 0.5,
-        shadowBlur          : '4'
+        shadowBlur          : 4
     }
 
     //select table rect
@@ -59,7 +58,7 @@ const TypeThreeTable = (props) => {
         y                   : tableRectProps.y - 23,
         width               : 30,
         height              : 30,
-        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
+        fill                : booked? "rgb(22, 31, 33, 0.2)" : "rgb(22, 31, 33, 0.5)",
     }
     
     const seatCircleProps2 = {
@@ -67,15 +66,15 @@ const TypeThreeTable = (props) => {
         y                   : tableRectProps.y + 143,
         width               : 30,
         height              : 30,
-        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
+        fill                : booked? "rgb(22, 31, 33, 0.2)" : "rgb(22, 31, 33, 0.5)",
     }
     
 
     /** TEXTS */
     const textXoffset = 22;
     const textYoffset = 5;
-    const numberXoffset = 29;
-    const numberYoffset = -57;
+    const numberXoffset = 30;
+    const numberYoffset = -50;
 
     const textSelectProps = {
         text                : "SELECT",
@@ -108,9 +107,6 @@ const TypeThreeTable = (props) => {
         <>
             <Rect 
                 {...tableRectProps}
-            />
-            <Rect
-                {...selectRectProps}
                 onClick         = {handleClick} 
                 onMouseEnter    = {handleHover} 
                 onMouseLeave    = {handleHover}
@@ -121,20 +117,11 @@ const TypeThreeTable = (props) => {
             <Circle
                 {...seatCircleProps2}
             />
-            <Text 
-                {...textSelectProps}  
-                onClick         = {handleClick} 
-                onMouseEnter    = {handleHover} 
-                onMouseLeave    = {handleHover}
-            />
-            <Text 
-                {...textTableProps}   
-                onClick         = {handleClick} 
-                onMouseEnter    = {handleHover} 
-                onMouseLeave    = {handleHover}
-            />
             <Text
                 {...textSeatsProps}
+                onClick         = {handleClick} 
+                onMouseEnter    = {handleHover} 
+                onMouseLeave    = {handleHover}
             />
         </>
     );

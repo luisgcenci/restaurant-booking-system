@@ -5,11 +5,11 @@
     justify-content: center;
     padding-bottom: 2vh;    
     text-decoration: none;
-    color: #9E9E9E;
+    color: #dedfe4;
 }
 
 .Item:hover{
-    color: #FFFFFF;
+    color: rgb(222, 223, 228, 0.5);
 }
 
 .Item p{

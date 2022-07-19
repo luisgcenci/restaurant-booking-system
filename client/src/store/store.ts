@@ -21,6 +21,7 @@ export const store = configureStore({
   reducer: persistedReducer,
   middleware: [thunk]
 });
+
 export const persistor = persistStore(store)
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;

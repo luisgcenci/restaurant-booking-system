@@ -43,3 +43,11 @@
     padding-left: 0.5vw;
     cursor: pointer;
 }
+
+.Submit input{
+    background-color: #eb8b35;
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+    padding: 1vh;
+}

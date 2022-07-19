@@ -8,7 +8,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import Button from './Button';
 import axios from 'axios';
 import { useAppSelector, useAppDispatch } from 'hooks/hooks';
-import { updateEndDate, updateFirstName, updateLastName, updatePeople, updateStartDate } from 'store/features/ReservationSlice';
+import { updateEndDate, updateFirstName, updateLastName, updatePeopleCount, updateStartDate } from 'store/features/ReservationSlice';
 
 const ReserveMainSection = (props) => {
 
@@ -22,7 +22,7 @@ const ReserveMainSection = (props) => {
     const [endTimeOptions, setEndTimeOptions] = useState(undefined);
     const [customerFirstName, setCustomerFirstName] = useState(reservationStates.firstName);
     const [customerLastName, setCustomerLastName] = useState(reservationStates.lastName);
-    const [numberOfPeople, setNumberOfPeople] = useState(reservationStates.people);
+    const [peopleCount, setPeopleCount] = useState(reservationStates.peopleCount);
     const [startDate, setStartDate] = useState(reservationStates.startDate);
     const [endDate, setEndDate] = useState(reservationStates.endDate);
 
@@ -99,7 +99,7 @@ const ReserveMainSection = (props) => {
                                 isDisabled  : false
                             })
                             
-                            openDate.add('m', 30);
+                            openDate.add(30, 'm');
                         }
                         
                     }
@@ -181,7 +181,7 @@ const ReserveMainSection = (props) => {
         dispatch(updateLastName(customerLastName));
         dispatch(updateStartDate(startDate.format()));
         dispatch(updateEndDate(endDate.format()));
-        dispatch(updatePeople(numberOfPeople));
+        dispatch(updatePeopleCount(peopleCount));
 
         navigate('/booking/tables');
     }
@@ -242,12 +242,12 @@ const ReserveMainSection = (props) => {
                     <input
 
                         type        = "number" 
-                        value       = {numberOfPeople}
+                        value       = {peopleCount}
                         onChange    = {(e) => {
                             if (e.target.value > 8 || e.target.value < 1) {
                                 e.target.value = 1;
                             } 
-                            setNumberOfPeople(e.target.value)
+                            setPeopleCount(e.target.value)
                         }}
                         placeholder="Enter Quantity of People"
                         min = "1"

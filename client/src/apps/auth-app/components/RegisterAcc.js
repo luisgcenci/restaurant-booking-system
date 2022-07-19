@@ -60,6 +60,7 @@ const RegisterAcc = () => {
                 </div>
                 <div className={styles.Submit}>
                     <input
+                        value='Register Account'
                         type='submit'
                         onClick={submitForm}>
                     </input>

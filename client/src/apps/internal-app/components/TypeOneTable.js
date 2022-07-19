@@ -14,7 +14,6 @@ const TypeOneTable = (props) => {
 
 
     const handleClick = (e) =>{
-        console.log(id);
         !booked && handlePopUp(true, id);
     }
 
@@ -35,22 +34,18 @@ const TypeOneTable = (props) => {
         y                   : y,
         width               : width,
         height              : height,
-        fill                : booked? "rgb(202, 71, 81, .2)" : "#CA4751",
+        fill                : booked? "rgb(164, 54, 4, .2)" : "#a43604",
         shadowColor         : 'black',
-        shadowOffsetX       : '2',
-        shadowOffsetY       : '2',
+        shadowOffsetX       : 2,
+        shadowOffsetY       : 2,
         shadowOpacity       : 0.5,
-        shadowBlur          : '4'
+        shadowBlur          : 4
     }
 
     //select table rect
     const selectRectProps = {
         x                   : (tableRectProps.x + tableRectProps.width)     - (tableRectProps.width / 3),
         y                   : (tableRectProps.y + tableRectProps.height)    - (tableRectProps.height / 3),
-        width               : tableRectProps.width  / 3,
-        height              : tableRectProps.height / 3,
-        fill                : booked? "rgb(81, 202, 81, .2)" : "#51CA47",
-        stroke              : booked? "rgb(78, 89, 224, .2)" : "#4E59E0"
     }
 
     const seatCircleProps = {
@@ -58,7 +53,7 @@ const TypeOneTable = (props) => {
         y                   : tableRectProps.y - 18,
         width               : 30,
         height              : 30,
-        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
+        fill                : booked? "rgb(22, 31, 33, 0.2)" : "rgb(22, 31, 33, 0.5)",
     } //topleft
     
     const seatCircleProps2 = {
@@ -66,7 +61,7 @@ const TypeOneTable = (props) => {
         y                   : tableRectProps.y - 18,
         width               : 30,
         height              : 30,
-        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
+        fill                : booked? "rgb(22, 31, 33, 0.2)" : "rgb(22, 31, 33, 0.5)"
     } //topmiddle
 
     const seatCircleProps3 = {
@@ -74,7 +69,7 @@ const TypeOneTable = (props) => {
         y                   : tableRectProps.y - 18,
         width               : 30,
         height              : 30,
-        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
+        fill                : booked? "rgb(22, 31, 33, 0.2)" : "rgb(22, 31, 33, 0.5)"
     } //topright
     
     const seatCircleProps4 = {
@@ -82,7 +77,7 @@ const TypeOneTable = (props) => {
         y                   : tableRectProps.y + 43,
         width               : 30,
         height              : 30,
-        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
+        fill                : booked? "rgb(22, 31, 33, 0.2)" : "rgb(22, 31, 33, 0.5)"
     }   //left
     
     const seatCircleProps5 = {
@@ -90,7 +85,7 @@ const TypeOneTable = (props) => {
         y                   : tableRectProps.y + 43,
         width               : 30,
         height              : 30,
-        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
+        fill                : booked? "rgb(22, 31, 33, 0.2)" : "rgb(22, 31, 33, 0.5)"
     } //right
 
     const seatCircleProps6 = {
@@ -98,7 +93,7 @@ const TypeOneTable = (props) => {
         y                   : tableRectProps.y + 113,
         width               : 30,
         height              : 30,
-        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
+        fill                : booked? "rgb(22, 31, 33, 0.2)" : "rgb(22, 31, 33, 0.5)"
     } //botleft
     
     const seatCircleProps7 = {
@@ -106,7 +101,7 @@ const TypeOneTable = (props) => {
         y                   : tableRectProps.y + 113,
         width               : 30,
         height              : 30,
-        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
+        fill                : booked? "rgb(22, 31, 33, 0.2)" : "rgb(22, 31, 33, 0.5)"
     } //botmiddle
 
     const seatCircleProps8 = {
@@ -114,33 +109,12 @@ const TypeOneTable = (props) => {
         y                   : tableRectProps.y + 113,
         width               : 30,
         height              : 30,
-        fill                : booked? "rgb(128, 128, 128, .2)" : "#808080"
+        fill                : booked? "rgb(22, 31, 33, 0.2)" : "rgb(22, 31, 33, 0.5)"
     } //botright
 
-    
     /** TEXTS */
-    const textXoffset = 10;
-    const textYoffset = 5;
-    const numberXoffset = -40;
+    const numberXoffset = -34;
     const numberYoffset = -34;
-
-    const textSelectProps = {
-        text                : "SELECT",
-        fontSize            : 10,
-        x                   : selectRectProps.x + textXoffset,
-        y                   : selectRectProps.y + textYoffset,
-        fill                : booked? "rgb(255, 255, 255, .2)" : "#FFF",
-        fontFamily          : "'Poppins', sans-serif"
-    }
-
-    const textTableProps = {
-        text                : "TABLE",
-        fontSize            : 10,
-        x                   : selectRectProps.x + textXoffset + 1,
-        y                   : selectRectProps.y + 12 + textYoffset,
-        fill                : booked? "rgb(255, 255, 255, .2)" : "#FFF",
-        fontFamily          : "'Poppins', sans-serif"
-    }
 
     const textSeatsProps = {
         text                : "8",
@@ -157,9 +131,6 @@ const TypeOneTable = (props) => {
         <>  
             <Rect 
                 {...tableRectProps}
-            />
-            <Rect   
-                {...selectRectProps}  
                 onClick         = {handleClick}
                 onMouseEnter    = {handleHover} 
                 onMouseLeave    = {handleHover}
@@ -188,20 +159,11 @@ const TypeOneTable = (props) => {
             <Circle
                 {...seatCircleProps8}
             />
-            <Text 
-                {...textSelectProps}  
-                onClick         = {handleClick} 
-                onMouseEnter    = {handleHover} 
-                onMouseLeave    = {handleHover}
-            />
-            <Text 
-                {...textTableProps}   
-                onClick         = {handleClick} 
-                onMouseEnter    = {handleHover} 
-                onMouseLeave    = {handleHover}
-            />
             <Text
                 {...textSeatsProps}
+                onClick         = {handleClick}
+                onMouseEnter    = {handleHover} 
+                onMouseLeave    = {handleHover}
             />
         </>
     );

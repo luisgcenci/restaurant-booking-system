@@ -1,28 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-// startDate: startDate.format(),
-// endDate: endDate.format(),
-// customerFName: customerFirstName,
-// customerLName: customerLastName,
-// numberOfPeople: numberOfPeople
-
-interface userState {
+interface reservationState {
   firstName: String,
   lastName: String,
   startDate: String,
   endDate: String,
-  people: Number
+  peopleCount: Number
 }
 
-const initialState: userState = {
-    firstName: '',
-    lastName: '',
-    startDate: '',
-    endDate: '',
-    people: 1
+const initialState: reservationState = {
+  firstName: '',
+  lastName: '',
+  startDate: '',
+  endDate: '',
+  peopleCount: 1
 };
 
-const userSlice = createSlice({
+const reservationSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
@@ -31,30 +25,39 @@ const userSlice = createSlice({
       st.firstName = action.payload;
     },
     updateLastName(state: any, action: PayloadAction<String>) {
-        const st = state;
-        st.lastName = action.payload;
+      const st = state;
+      st.lastName = action.payload;
     },
     updateStartDate(state: any, action: PayloadAction<String>) {
-        const st = state;
-        st.startDate = action.payload;
+      const st = state;
+      st.startDate = action.payload;
     },
     updateEndDate(state: any, action: PayloadAction<String>) {
-        const st = state;
-        st.endDate = action.payload;
+      const st = state;
+      st.endDate = action.payload;
     },
-    updatePeople(state: any, action: PayloadAction<Number>) {
-        const st = state;
-        st.people = action.payload;
+    updatePeopleCount(state: any, action: PayloadAction<Number>) {
+      const st = state;
+      st.peopleCount = action.payload;
     },
+    clearReservationStates(state: any, action: PayloadAction<String>){
+      const st = state;
+      st.firstName = '';
+      st.lastName = '';
+      st.startDate = '';
+      st.endDate = '';
+      st.peopleCount = 1;
+    }
   },
 });
 
 export const {
-    updateFirstName,
-    updateLastName,
-    updateStartDate,
-    updateEndDate,
-    updatePeople
-} = userSlice.actions;
+  updateFirstName,
+  updateLastName,
+  updateStartDate,
+  updateEndDate,
+  updatePeopleCount,
+  clearReservationStates
+} = reservationSlice.actions;
 
-export default userSlice.reducer;
+export default reservationSlice.reducer;

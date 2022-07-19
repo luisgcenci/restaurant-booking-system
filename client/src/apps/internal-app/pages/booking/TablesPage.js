@@ -1,7 +1,7 @@
-import React, {useState, useRef, useEffect }     from 'react'
+import React, {useState, useEffect }     from 'react'
 import styles from './css/TablesPage.module.css'
 import { useAppSelector } from 'hooks/hooks';
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {Stage, Layer} from 'react-konva'
 import moment from 'moment';
 import TablesTypeOne from 'apps/internal-app/components/TablesTypeOne'
@@ -12,25 +12,23 @@ import axios from 'axios';
 
 const TablesPage = () => {
 
-    const navigate = useNavigate();
     const user = useAppSelector((state) => state.user);
     const reservation = useAppSelector((state) => state.reservation)
 
-    const [customerFirstName] = useState(reservation.customerFName);
-    const [customerLastName] = useState(reservation.customerLName);
-    const [currentUser] = useState(user.username);
+    const [customerFirstName] = useState(reservation.firstName);
+    const [customerLastName] = useState(reservation.lastName);
+    const [peopleCount] = useState(reservation.peopleCount);
     const [startDate] = useState(moment(reservation.startDate));
     const [endDate] = useState(moment(reservation.endDate));
+    const [currentUser] = useState(user.username);
     const [hovering, setHovering] = useState('default');
     const [openPopUp, setopenPopUp] = useState(false);
+    const [newReservation, setNewReservation] = useState(false);
     const [tableIdPicked, setTableIdPicked] = useState(undefined);
     const [tablesIds, setTablesIds] = useState(undefined);
 
-    const [stageWidth, setStageWidth] = useState(null);
-    const stageRef = useRef(null);
-
     useEffect(() => {
-        
+
         let data = undefined;
         axios.get('http://127.0.0.1:5000/api/v1/company/tables/?companyName=The Little Eatery')
         .then((response) => {
@@ -38,19 +36,19 @@ const TablesPage = () => {
             data = response.data;
             let map = new Map();
             
-            Object.keys(data).map( (d) => {
+            Object.keys(data).forEach( (d) => {
                 
                 let booked = false;
                 
-                let dbTodayDateFormatted = startDate.format('L').replaceAll('/','-');
+                let dbTodayDateFormatted = new Date(startDate).toLocaleDateString('en-US');
                 let reservations = data[d]['reservations'];
                 
                 if (reservations){
                     let todayReservations = reservations[dbTodayDateFormatted];
                     
                     if (todayReservations){
-    
-                        Object.keys(todayReservations).map(r =>{
+                        
+                        Object.keys(todayReservations).forEach((r) =>{
     
                             let from = moment(todayReservations[r]['from']);
                             let to = moment(todayReservations[r]['to']);
@@ -65,6 +63,7 @@ const TablesPage = () => {
     
                     }
                 }
+                
                 map.set(d, booked);
             });
             
@@ -73,7 +72,7 @@ const TablesPage = () => {
         .catch((err) => {
             console.log(err);
         });
-    }, []);
+    }, [newReservation, startDate, endDate]);
 
     const handleHovering = (h) => {
         setHovering(h);
@@ -86,20 +85,25 @@ const TablesPage = () => {
     
     const handleReservation = () => {
         
-        let dateFormatted = startDate.format('L');
-        dateFormatted = dateFormatted.replaceAll("/","-");
-        let r = Math.random().toString(36).substr(2, 9);
         handlePopUp(false);
-        // database.ref('company/tables/' + tableIdPicked + "/reservations/" + dateFormatted + "/" + r + "/"
-        
-        // ).set({
-        //     username: currentUser,
-        //     first_name: customerFirstName,
-        //     last_name: customerLastName,
-        //     from: startDate.format(),
-        //     to: endDate.format(),
-        //     number_of_people: numberOfPeople
-        // });
+
+        axios.post(`http://127.0.0.1:5000/api/v1/company/reservation/?companyName=The Little Eatery&tableId=${tableIdPicked}`,{
+            username: currentUser,
+            first_name: customerFirstName,
+            last_name: customerLastName,
+            from: startDate.format(),
+            to: endDate.format(),
+            peopleCount: peopleCount,
+            tableId: tableIdPicked
+        })
+        .then((response) => {
+            if (response.data.reservation){
+                setNewReservation(!newReservation);
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+        });
     }
 
     const sliceMap = (map, start, end) =>{
@@ -107,7 +111,7 @@ const TablesPage = () => {
         let slicedMap = new Map();
 
         for (let i = start; i <= end; i++){
-            slicedMap.set(i, map.get(i))
+            slicedMap.set(i, map.get(String(i)))
         }
 
         return slicedMap;
@@ -126,8 +130,8 @@ const TablesPage = () => {
                     </div>
                 }
             </div>
-            <div className={styles.Tables} ref={stageRef}>
-                <Stage width={1520} height={800}>
+            <div className={styles.Tables}>
+                <Stage width={1520} height={850}>
                 {
                     tablesIds ?
                     <Layer>
@@ -178,22 +182,23 @@ const TablesPage = () => {
                 </Stage>
                 
             </div>
-            {   
-                openPopUp?
-                <>
-                    <PopUp 
-                        handlePopUp         = {handlePopUp}
-                        handleReservation   = {handleReservation}
-                        from                = {startDate.format()}
-                        to                  = {endDate.format()}
-                        first_name          = {customerFirstName}
-                        last_name           = {customerLastName}
-                    />
-                </>
-                :
-                <div>
-                </div>
+            {
+            openPopUp ?
+            <div className={styles.PopUp}>
+                <PopUp 
+                    handlePopUp         = {handlePopUp}
+                    handleReservation   = {handleReservation}
+                    from                = {startDate.format()}
+                    to                  = {endDate.format()}
+                    first_name          = {customerFirstName}
+                    last_name           = {customerLastName}
+                />
+            </div>
+            :
+            <div>
+            </div>
             }
+
         </div>
     )
 }

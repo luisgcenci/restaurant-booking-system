@@ -5,8 +5,8 @@ import TypeOneTable from './TypeOneTable'
 const TablesTypeOne = (props)               => {
 
     const x                         = props.x
-    const yStart                    = 40;
-    const yDistance                 = 175;
+    const yStart                    = 50;
+    const yDistance                 = 200;
     const tableDistanceFromWalls    = 40;
     const width                     = 160;
     const height                    = 95;
@@ -23,13 +23,6 @@ const TablesTypeOne = (props)               => {
 
     return (
         <>
-            <Line
-                x               = {x}
-                y               = {getLineYDistance(0)}
-                points          = {[0, 0, 300, 0]}
-                stroke          = '#4E59E0'
-                strokeWidth     = {4}
-            />
             <TypeOneTable 
                 id              = {ids[0]}
                 x               = {x + width - (width / 2)}
@@ -39,15 +32,6 @@ const TablesTypeOne = (props)               => {
                 handleHovering  = {props.handleHovering}
                 handlePopUp     = {props.handlePopUp}
             />
-
-            <Line
-                x               = {x}
-                y               = {getLineYDistance(1)}
-                points          = {[0, 0, 300, 0]}
-                stroke          = {'#4E59E0'}
-                strokeWidth     = {4}
-            />
-            
             <TypeOneTable 
                 id              = {ids[1]} 
                 x               = {x + width - (width / 2)}
@@ -56,13 +40,6 @@ const TablesTypeOne = (props)               => {
                 height          = {height}
                 handleHovering  = {props.handleHovering}    
                 handlePopUp     = {props.handlePopUp}
-            />
-            <Line
-                x               = {x}
-                y               = {getLineYDistance(2)}
-                points          = {[0, 0, 300, 0]}
-                stroke          = {'#4E59E0'}
-                strokeWidth     = {4}
             />
             <TypeOneTable 
                 id              = {ids[2]} 
@@ -73,13 +50,6 @@ const TablesTypeOne = (props)               => {
                 handleHovering  = {props.handleHovering}
                 handlePopUp     = {props.handlePopUp}
             />
-            <Line
-                x               = {x}
-                y               = {getLineYDistance(3)}
-                points          = {[0, 0, 300, 0]}
-                stroke          = {'#4E59E0'}
-                strokeWidth     = {4}
-            />
             <TypeOneTable 
                 id              = {ids[3]} 
                 x               = {x + width - (width / 2)}
@@ -88,14 +58,6 @@ const TablesTypeOne = (props)               => {
                 height          = {height}
                 handleHovering  = {props.handleHovering}
                 handlePopUp     = {props.handlePopUp}
-            />
-            <Line
-                x               = {x}
-                y               = {getLineYDistance(4)}
-                points          = {[0, 0, 300, 0]}
-                stroke          = {'#4E59E0'}
-                strokeWidth     = {4}
-                handleHovering  = {props.handleHovering}
             />
         </>
     );

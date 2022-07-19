@@ -17,29 +17,26 @@ const PopUp = (props) => {
     }
 
     return (
-        <div className={styles.PopUp}>
-            <div>
-                <div>
+        <div className={styles.PopUpBackground}>
+            <div className={styles.PopUp}>
+                <div className={styles.Title}>
                     <h4>CONFIRM TABLE RESERVATION?</h4>
                 </div>
+                <div className={styles.ConfirmationInfo}>
                     <div className={styles.ConfirmationInfo}>
-                        FROM: <span>{moment(props.from).format('MMMM Do YYYY, h:mm:ss a')}</span>
+                        <p>FROM: <span>{moment(props.from).format('MMMM Do YYYY, h:mm:ss a')}</span></p>
+                        <p>TO: <span>{moment(props.to).format('MMMM Do YYYY, h:mm:ss a')}</span></p>
+                        <p>FIRST NAME : <span>{props.first_name}</span></p>
+                        <p>LAST NAME : <span>{props.last_name}</span></p>
                     </div>
-                    <div className={styles.ConfirmationInfo}>
-                        TO: <span>{moment(props.to).format('MMMM Do YYYY, h:mm:ss a')}</span>
-                    </div>
-                    <div className={styles.ConfirmationInfo}>
-                        FIRST NAME : <span>{props.first_name}</span>
-                    </div>
-                    <div className={styles.ConfirmationInfo}>
-                        LAST NAME : <span>{props.last_name}</span>
-                    </div>
-
-                <div onClick = {() => handleClick(true)}>
-                    <h4>YES</h4>
                 </div>
-                <div onClick = {() => handleClick(false)}>
-                    <h4>NO</h4>
+                <div className={styles.Buttons}>
+                    <div className={styles.Button} id={styles.ButtonGreen} onClick = {() => handleClick(true)}>
+                        <h4>YES</h4>
+                    </div>
+                    <div className={styles.Button} id={styles.ButtonRed} onClick = {() => handleClick(false)}>
+                        <h4>NO</h4>
+                    </div>
                 </div>
             </div>
         </div>

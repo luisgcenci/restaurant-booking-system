@@ -8,8 +8,12 @@ import { IoSettings } from 'react-icons/io5'
 import CompanyInfo from '../components/CompanyInfo';
 import NavBarItem from '../components/NavBarItem';
 import UserInfo from '../components/UserInfo';
+import { useAppSelector } from 'hooks/hooks';
 
 const NavBar = () => {
+
+  const userEmail = useAppSelector((state) => state.user.username);
+
   return (
     <div className={styles.NavBar}>
       <div className={styles.Company}>
@@ -41,7 +45,7 @@ const NavBar = () => {
         <UserInfo
           avatar={avatar}
           name='Brooklyn Simmons'
-          email='brooklyn@simmons.com'
+          email={userEmail}
         />
       </div>
     </div>

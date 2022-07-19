@@ -9,6 +9,7 @@ import { updateUsername } from 'store/features/userSlice'
 
 const Form = () => {
 
+    const user = useAppSelector((state) => state.user);
     const [message, setMessage] = useState('');
     const [messageSign, setMessageSign] = useState(null);
     const [username, setUsername] = useState(useAppSelector((state) => state.user.username));
@@ -27,7 +28,7 @@ const Form = () => {
 
         axios.post('http://127.0.0.1:5000/api/v1/user/updateusername', {
             newUsername: username,
-            token: localStorage.getItem('token')
+            token: user.token
         }).then ((response) =>{
             if (response){
                 let status = response.status;

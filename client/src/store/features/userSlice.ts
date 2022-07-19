@@ -1,11 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface userState {
-  username: String
+  username: String,
+  auth: Boolean,
+  token: String
 }
 
 const initialState: userState = {
   username: '',
+  auth: false,
+  token: ''
 };
 
 const userSlice = createSlice({
@@ -16,11 +20,28 @@ const userSlice = createSlice({
       const st = state;
       st.username = action.payload;
     },
+    updateAuth(state: any, action: PayloadAction<String>) {
+      const st = state;
+      st.auth = action.payload;
+    },
+    updateToken(state: any, action: PayloadAction<String>) {
+      const st = state;
+      st.token = action.payload;
+    },
+    clearUserStates(state: any, action: PayloadAction<String>){
+      const st = state;
+      st.username = '';
+      st.auth = '';
+      st.token = '';
+    }
   },
 });
 
 export const {
-    updateUsername,
+  updateUsername,
+  updateAuth,
+  updateToken,
+  clearUserStates
 } = userSlice.actions;
 
 export default userSlice.reducer;

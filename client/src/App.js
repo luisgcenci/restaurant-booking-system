@@ -1,47 +1,41 @@
 import './css/App.css';
 import InternalApp from './apps/internal-app/InternalApp';
 import AuthApp from './apps/auth-app/AuthApp';
-import React, {useState, useEffect} from 'react';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import { persistor, store } from './store/store'
+import React, {useEffect} from 'react';
 import axios from 'axios';
+import { useAppDispatch, useAppSelector } from 'hooks/hooks';
+import { updateAuth } from 'store/features/userSlice';
 
 const App = () => {
 
-  const [loginStatus, setLoginStatus] = useState(false);
-
-  const loginHandler = (status) =>{
-    setLoginStatus(status);
-  } 
+  const user = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
 
   useEffect(() =>{
+    let isMounted = true;
     axios.get('http://127.0.0.1:5000/api/v1/user/auth', {
       headers: {
-        'x-access-token': localStorage.getItem('token')
+        'x-access-token': user.token
       }
     }).then( (response) =>{
-
-      if(response.data.auth){
-        setLoginStatus(true);
+      if(response.data.auth && isMounted){
+        dispatch(updateAuth(true));
       };
+    }).catch((err) => {
+      dispatch(updateAuth(false));
     });
 
-}, []);
+    return () => { isMounted = false };
+  }, [dispatch, user.token]);
 
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <div className='App'>
-          {loginStatus ?
-            <InternalApp/>
-            :
-            <AuthApp loginHandler={loginHandler}/>
-          }
-        </div>
-      </PersistGate>
-    </Provider>
-    
+    <div className='App'>
+      {user.auth ?
+        <InternalApp/>
+        :
+        <AuthApp/>
+      }
+    </div>
   );
 }
 
