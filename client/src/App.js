@@ -5,15 +5,17 @@ import React, {useEffect} from 'react';
 import axios from 'axios';
 import { useAppDispatch, useAppSelector } from 'hooks/hooks';
 import { updateAuth } from 'store/features/userSlice';
+require('dotenv').config()
 
 const App = () => {
 
   const user = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
+  const baseUrl = useAppSelector((state) => state.server.baseUrl);
 
-  useEffect(() =>{
+  useEffect(() => {
     let isMounted = true;
-    axios.get('http://127.0.0.1:5000/api/v1/user/auth', {
+    axios.get(`${baseUrl}api/v1/user/auth`, {
       headers: {
         'x-access-token': user.token
       }

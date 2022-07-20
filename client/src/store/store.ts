@@ -3,7 +3,8 @@ import { persistStore, persistReducer } from 'redux-persist'
 import thunk from 'redux-thunk';
 import storage from 'redux-persist/lib/storage';
 import userSlice from './features/userSlice';
-import ReservationSlice from './features/ReservationSlice';
+import reservationSlice from './features/reservationSlice';
+import serverSlice from './features/serverSlice';
 
 const persistConfig = {
   key: 'root',
@@ -12,7 +13,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({ 
   user: userSlice,
-  reservation: ReservationSlice
+  reservation: reservationSlice,
+  server: serverSlice
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -8,11 +8,12 @@ import 'react-datepicker/dist/react-datepicker.css';
 import Button from './Button';
 import axios from 'axios';
 import { useAppSelector, useAppDispatch } from 'hooks/hooks';
-import { updateEndDate, updateFirstName, updateLastName, updatePeopleCount, updateStartDate } from 'store/features/ReservationSlice';
+import { updateEndDate, updateFirstName, updateLastName, updatePeopleCount, updateStartDate } from 'store/features/reservationSlice';
 
 const ReserveMainSection = (props) => {
 
     const reservationStates = useAppSelector((state) => state.reservation)
+    const baseUrl = useAppSelector((state) => state.server.baseUrl);
     const dispatch = useAppDispatch();
 
     const [datePicked, setDatePicked] = useState(moment());
@@ -48,7 +49,7 @@ const ReserveMainSection = (props) => {
             let startTimeOptions        = [];
             let endTimeOptions          = [];
     
-            axios.get('http://127.0.0.1:5000/api/v1/company/operation/?companyName=The Little Eatery')
+            axios.get(`${baseUrl}api/v1/company/operation/?companyName=The Little Eatery`)
             .then((response) => {
                 data = response.data;
 

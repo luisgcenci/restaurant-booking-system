@@ -3,7 +3,7 @@ import styles from './css/UserInfo.module.css'
 import Button from './Button'
 import { useAppDispatch } from 'hooks/hooks'
 import { clearUserStates } from 'store/features/userSlice'
-import { clearReservationStates } from 'store/features/ReservationSlice'
+import { clearReservationStates } from 'store/features/reservationSlice'
 
 const UserInfo = ({avatar, name, email}) => {
   

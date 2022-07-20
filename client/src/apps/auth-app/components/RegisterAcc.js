@@ -2,18 +2,20 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styles from '../css/RegisterAcc.module.css'
+import { useAppSelector } from 'hooks/hooks';
 
 const RegisterAcc = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const baseUrl = useAppSelector((state) => state.server.baseUrl);
 
     const submitForm = (e) =>{
 
         e.preventDefault();
         
-        axios.post('http://127.0.0.1:5000/api/v1/user/signup', {
+        axios.post(`${baseUrl}api/v1/user/signup`, {
             username: username,
             password: password
         }).then ((response) =>{
@@ -22,15 +24,11 @@ const RegisterAcc = () => {
                 setUsername('');
                 setPassword('');
                 setErrorMessage('');
-                console.log(response.data.jwt_token);
                 localStorage.setItem('token', response.data.jwt_token);
-                console.log('registerd');
-            }
-            else{
-                console.log('couldnt register');
             }
         }).catch((err) => {
-            const message = err.response.data
+            let message = err;
+            if (err.response) message = err.response.data
             setErrorMessage(message);
         });
     }

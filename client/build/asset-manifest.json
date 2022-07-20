@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.89ac7cbc.chunk.css",
+    "main.js": "/static/js/main.f2feada0.chunk.js",
+    "main.js.map": "/static/js/main.f2feada0.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.900dd88b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.900dd88b.js.map",
+    "static/css/2.d22f252f.chunk.css": "/static/css/2.d22f252f.chunk.css",
+    "static/js/2.8be3aeeb.chunk.js": "/static/js/2.8be3aeeb.chunk.js",
+    "static/js/2.8be3aeeb.chunk.js.map": "/static/js/2.8be3aeeb.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.d22f252f.chunk.css.map": "/static/css/2.d22f252f.chunk.css.map",
+    "static/css/main.89ac7cbc.chunk.css.map": "/static/css/main.89ac7cbc.chunk.css.map",
+    "static/js/2.8be3aeeb.chunk.js.LICENSE.txt": "/static/js/2.8be3aeeb.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/static/media/Inter-VariableFont_slnt,wght.aadb65ac.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.900dd88b.js",
+    "static/css/2.d22f252f.chunk.css",
+    "static/js/2.8be3aeeb.chunk.js",
+    "static/css/main.89ac7cbc.chunk.css",
+    "static/js/main.f2feada0.chunk.js"
+  ]
+}
