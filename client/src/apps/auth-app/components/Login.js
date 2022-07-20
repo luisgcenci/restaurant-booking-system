@@ -17,7 +17,7 @@ const Login = () => {
 
         e.preventDefault();
 
-        axios.post(`${baseUrl}api/v1/user/signin`, {
+        axios.post(`api/v1/user/signin`, {
             username: username,
             password: password
         }).then ((response) =>{
