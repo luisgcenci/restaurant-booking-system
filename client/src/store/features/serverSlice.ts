@@ -5,7 +5,7 @@ interface serverState {
 }
 
 const initialState: serverState = {
-  baseUrl: 'https://restaurant-booking-system.ga:5000/',
+  baseUrl: 'https://restaurant-booking-system.ga:5000',
 };
 
 const serverSlice = createSlice({
