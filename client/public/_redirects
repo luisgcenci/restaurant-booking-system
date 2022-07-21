@@ -1,1 +1,2 @@
-/api/*  http://18.219.62.185:5000/:splat  200
+/* /index.html 200
+/api/*  https://restaurant-booking-system.ga:5000/:splat  200
