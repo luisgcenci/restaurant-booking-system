@@ -119,9 +119,9 @@ const TypeThreeTable = (props) => {
             />
             <Text
                 {...textSeatsProps}
-                onClick         = {handleClick} 
-                onMouseEnter    = {handleHover} 
-                onMouseLeave    = {handleHover}
+                // onClick         = {handleClick} 
+                // onMouseEnter    = {handleHover} 
+                // onMouseLeave    = {handleHover}
             />
         </>
     );
