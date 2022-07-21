@@ -6,6 +6,11 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistor, store } from './store/store'
+import axios from 'axios';
+
+axios.defaults.baseURL = 'https://restaurant-booking-system.ga:5000/'
+
+// "proxy": "https://restaurant-booking-system.ga:5000/",
 
 ReactDOM.render(
   <React.StrictMode>

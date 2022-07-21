@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styles from '../css/Login.module.css'
-import { useAppDispatch, useAppSelector } from '../../../hooks/hooks';
-import { updateAuth, updateToken, updateUsername } from '../../../store/features/userSlice';
+import { useAppDispatch } from 'hooks/hooks';
+import { updateAuth, updateToken, updateUsername } from 'store/features/userSlice';
 
 const Login = () => {
 
@@ -11,13 +11,12 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const dispatch = useAppDispatch();
-    const baseUrl = useAppSelector((state) => state.server.baseUrl);
 
     const submitForm = (e) =>{
 
         e.preventDefault();
 
-        axios.post(`/api/v1/user/signin`, {
+        axios.post(`api/v1/user/signin`, {
             username: username,
             password: password
         }).then ((response) =>{

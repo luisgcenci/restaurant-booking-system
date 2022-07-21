@@ -14,7 +14,6 @@ const TablesPage = () => {
 
     const user = useAppSelector((state) => state.user);
     const reservation = useAppSelector((state) => state.reservation);
-    const baseUrl = useAppSelector((state) => state.server.baseUrl);
 
     const [customerFirstName] = useState(reservation.firstName);
     const [customerLastName] = useState(reservation.lastName);
@@ -31,7 +30,7 @@ const TablesPage = () => {
     useEffect(() => {
 
         let data = undefined;
-        axios.get(`${baseUrl}api/v1/company/tables/?companyName=The Little Eatery`)
+        axios.get('api/v1/company/tables/?companyName=The Little Eatery')
         .then((response) => {
             // check if tables are booked or not for time given
             data = response.data;
@@ -88,7 +87,7 @@ const TablesPage = () => {
         
         handlePopUp(false);
 
-        axios.post(`${baseUrl}api/v1/company/reservation/?companyName=The Little Eatery&tableId=${tableIdPicked}`,{
+        axios.post(`api/v1/company/reservation/?companyName=The Little Eatery&tableId=${tableIdPicked}`,{
             username: currentUser,
             first_name: customerFirstName,
             last_name: customerLastName,

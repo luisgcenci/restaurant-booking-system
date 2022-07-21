@@ -13,7 +13,6 @@ import { updateEndDate, updateFirstName, updateLastName, updatePeopleCount, upda
 const ReserveMainSection = (props) => {
 
     const reservationStates = useAppSelector((state) => state.reservation)
-    const baseUrl = useAppSelector((state) => state.server.baseUrl);
     const dispatch = useAppDispatch();
 
     const [datePicked, setDatePicked] = useState(moment());
@@ -49,7 +48,7 @@ const ReserveMainSection = (props) => {
             let startTimeOptions        = [];
             let endTimeOptions          = [];
     
-            axios.get(`${baseUrl}api/v1/company/operation/?companyName=The Little Eatery`)
+            axios.get('api/v1/company/operation/?companyName=The Little Eatery')
             .then((response) => {
                 data = response.data;
 

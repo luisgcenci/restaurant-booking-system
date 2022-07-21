@@ -16,7 +16,6 @@ const Form = () => {
     const [persistentUsername] = useState(useAppSelector((state) => state.user.username));
     const [password, setPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
-    const baseUrl = useAppSelector((state) => state.server.baseUrl);
     const dispatch = useAppDispatch();
 
     const handleUsernameUpdate = (e) =>{
@@ -27,7 +26,7 @@ const Form = () => {
             return;
         }
 
-        axios.post(`${baseUrl}api/v1/user/updateusername`, {
+        axios.post('api/v1/user/updateusername', {
             newUsername: username,
             token: user.token
         }).then ((response) =>{
@@ -55,7 +54,7 @@ const Form = () => {
 
     const handleUpdatePassword = (e) =>{
 
-        axios.post(`${baseUrl}api/v1/user/updatepassword`, {
+        axios.post('api/v1/user/updatepassword', {
             username: persistentUsername,
             password: password,
             newPassword: newPassword

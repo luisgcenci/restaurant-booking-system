@@ -11,11 +11,10 @@ const App = () => {
 
   const user = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
-  const baseUrl = useAppSelector((state) => state.server.baseUrl);
 
   useEffect(() => {
     let isMounted = true;
-    axios.get(`${baseUrl}api/v1/user/auth`, {
+    axios.get('api/v1/user/auth', {
       headers: {
         'x-access-token': user.token
       }
