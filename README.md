@@ -1,13 +1,51 @@
-# NodeJS Backend App - Starter
-NodeJS app on express framework backed by a MongoDB database following MVC pattern. Includes User Model with CRUD services, as well signin/signup endpoints. Passwords are encrypted using bcryptjs.
+# Restaurant Booking System
+A booking system for restaurants where users can signin/signup and reserve tables for a given date and time.
 
-# Minimum Dependencies
-[NodeJS](https://nodejs.org/en/download/) \
-[MongoDB](https://www.mongodb.com/docs/manual/tutorial/getting-started/) \
-[Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable)
+# Table of Contents
+[General Info](#general-info) \
+[Technologies]() \
+[Prototype]() \
+[Architecture](#architecture)
+
+# General Info
+The goal of this project was to **design, develop and deploy** in the **Cloud** a full stack web app using **Figma**, the **MERN** stack and **AWS** services. MVCS pattern was used in the backend of this application. This project was for training purposes.
+
+# Technologies
+- UI
+  - Figma
+- Frontend
+  - React
+  - Yarn
+  - Typescript
+  - Redux (redux-persist)
+  - React Router
+  - Axios
+  - Konva
+- Backend
+  - Node.js
+  - Express
+  - MongoDB Atlas (mongoose)
+  - JSON Web Tokens
+  - Bcrypt
+- Backend Infrastructure on AWS
+  - EC2
+    - Ubuntu 22.04
+    - PM2
+    - Snap
+    - Apache (Reverse Proxy)
+    - Certbot (SSL Certificate)
+  - Elastic IPs
+  - Route53
+# Architecture
+
+![alt text](./prototype/images/architecture.png)
 
 
-# Features
+
+## Prototype
+
+
+# Status
 
 **Authentication**  using Email and Password \
 Add `(signup/signin)` / Update / Delete Users
