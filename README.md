@@ -38,7 +38,7 @@ The goal of this project was to **design, develop and deploy** in the **Cloud** 
   - Route53
 # Architecture
 
-![alt text](./prototype/images/architecture.png)
+![alt text](./prototype/images/architecture-3.png)
 
 
 
