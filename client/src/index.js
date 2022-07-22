@@ -10,8 +10,6 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://restaurant-booking-system.ga:5000/'
 
-// "proxy": "https://restaurant-booking-system.ga:5000/",
-
 ReactDOM.render(
   <React.StrictMode>
     <Router>
