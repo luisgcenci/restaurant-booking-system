@@ -5,10 +5,10 @@ A booking system for restaurants where users can signin/signup and reserve table
 
 # Table of Contents
 [General Info](#general-info) \
-[Technologies]() \
+[Technologies](#technologies) \
 [Architecture](#architecture) \
-[Application Structure](#application-structures) \
-[Set Up](#setup)
+[Application Structure](#application-structure) \
+[Set Up](#set-up)
 
 # General Info
 The goal of this project was to **design, develop and deploy** in the **Cloud** a full stack web app using **Figma**, the **[MERN](https://www.mongodb.com/mern-stack)** stack and **AWS** services. **[MVCS](https://quantiphi.com/an-introduction-to-mvcs-architecture/)** pattern was used in the backend of this application. This project was for training purposes.
@@ -41,7 +41,7 @@ The goal of this project was to **design, develop and deploy** in the **Cloud** 
   - Route53
 # Architecture
 
-![alt text](./prototype/images/architecture-3.png)
+![alt text](./prototype/images/architecture-4.png)
 
 # Application Structure
 
