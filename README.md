@@ -48,7 +48,7 @@ The goal of this project was to **design, develop and deploy** in the **Cloud** 
 # Status
 
 **Authentication**  using Email and Password \
-Add `(signup/signin)` / Update / Delete Users
+Add `(signup/signin)` / Update / Delete User
 
 # Application Structure
 
